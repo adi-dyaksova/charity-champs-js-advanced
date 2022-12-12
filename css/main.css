@@ -153,3 +153,7 @@ body {
 a:hover {
     color: #576de0;
 }
+
+button:hover {
+    cursor: pointer;
+}
