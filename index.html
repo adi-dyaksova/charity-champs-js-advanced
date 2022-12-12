@@ -1,10 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Empty page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/homepage.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/596f1933be.js" crossorigin="anonymous"></script>
 </head>
-<body>
 
+<body>
+    <header>
+        <div class="title-logo-wrapper" onclick="location.href='index.html'">
+            <div class="title">Charity</div>
+            <img class="header-logo" src="./images/logo_notext.png">
+            <div class="title">Champs</div>
+        </div>
+    </header>
+    <main>
+        <nav class="navbar">
+            <div class="links-wrapper">
+                <a class="link" href="index.html">Начало</a>
+                <a class="link" href="catalog.html">Каузи</a>
+                <a class="link" href="champions.html">Шампиони</a>
+            </div>
+            <div class="search-root">
+                <div class="search-wrapper">
+                    <input class="searchfield" />
+                    <div class="search-overlay">
+                        <i class="fas fa-search"></i>
+                        <span>Търси</span>
+                    </div>
+                </div>
+            </div>
+            <div class="actions-wrapper">
+                <button class="login-btn" type="button" onclick="location.href='login.html'">Вход</button>
+                <button class="register-btn" type="button" onclick="location.href='register.html'">Регистрация</button>
+            </div>
+        </nav>
 </body>
+
 </html>
