@@ -3,13 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Empty page</title>
+    <title>Начало</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/homepage.css">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/catalog.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/596f1933be.js" crossorigin="anonymous"></script>
+    <script src="./JavaScript/index.js"></script>
 </head>
 
 <body>
@@ -41,6 +43,186 @@
                 <button class="register-btn" type="button" onclick="location.href='register.html'">Регистрация</button>
             </div>
         </nav>
+
+        <section class="main-page">
+
+            <section class="categories-wrapper">
+                <div class="categories-header">
+                    <h2 class="categories-heading">Категории</h2>
+                    <button class="filters-button" onclick="changeVisibility()"><i class="fa">&#xf1de;</i></button>
+                </div>
+                <div id="categories" class="categories-list">
+                    <div class="category-button">Бедствия/кризи</div>
+                    <div class="category-button">Бежанци/eмигранти</div>
+                    <div class="category-button">Деца</div>
+                    <div class="category-button">Домове</div>
+                    <div class="category-button">Възрастни</div>
+                    <div class="category-button">Животни</div>
+                    <div class="category-button">Образование</div>
+                    <div class="category-button">Здраве</div>
+                    <div class="category-button">Култура/изкуство</div>
+                </div>
+                <div id="filters" class="filters-list no-display">
+                    <div class="switch-wrapper">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        Спешни каузи
+                    </div>
+                    <div class="filter-item">
+                        <h3>Време</h3>
+                        <label class="option-container">До 5 минути
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="option-container">До час
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="option-container">До ден
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="option-container">До няколко дни
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="option-container">Дългосрочно
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                    <div class="filter-item">
+                        <h3>Място</h3>
+                        <label class="option-container">Перник
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="option-container">София
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="option-container">Варна
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="option-container">Пазарджик
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="option-container">Смолян
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="option-container">Кюстендил
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="option-container">Бургас
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="option-container">Видин
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="option-container">Ловеч
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="option-container">Плевен
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="option-container">Ямбол
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <!-- TODO: още градове и други филтри -->
+
+                </div>
+            </section>
+
+
+
+            <section class="map">
+                <h2 class="map-header">Къде има нужда от помощ точно сега?</h2>
+                <div class="mapouter">
+                    <div class="gmap_canvas">
+                        <iframe width="750" height="550" id="gmap_canvas"
+                            src="https://maps.google.com/maps?q=Sofia,%20FMI&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+
+            <div class="popular-charities-wrapper">
+                <div class="popular-header">
+                    <h2 class="popular-heading">Популярни каузи</h2>
+                </div>
+                <div class="popular-charities-content">
+                    <div class="charity-item">
+                        <!-- <div class="charity-title"> Title </div>
+                            <div class="charity-participants-box">
+                                <div class="charity-participants-text"> Top box</div>
+                            </div>  -->
+                        <div class="title-wrapper">
+                            <div class="charity-title">
+                                <div class="charity-participants-box"> 234 записани</div>
+                                Подкрепи бежанци с хранителни продукти, хигиенни материали и ученически пособия.
+
+                            </div>
+                        </div>
+                        <div class="popular-charity-description"> Сдружение “Гаврош” във Варна се превръща в пункт за
+                            хуманитарна помощ,
+                            който ще подкрепи усилията на Центъра за съдействие на бежанци в града. Удари рамо в мисията
+                            им - да помагат
+                            на хората, търсещи закрила в България.
+                        </div>
+                    </div>
+
+                    <div class="charity-item">
+                        <div class="title-wrapper">
+                            <div class="charity-title">
+                                <div class="charity-participants-box signed-up"> 234 записани</div>
+                                Разходи кучетата от общинския приют в Перник
+                            </div>
+                        </div>
+                        <div class="popular-charity-description"> Как ти звучи да разходиш 42 кучета за един ден? Това в
+                            момента е съотношението
+                            между доброволците и обитателите в един от най-големите приюти в страната, затова екипът му
+                            се обръща към теб
+                            за помощ - да изведеш опашат приятел и да му подариш миг свобода. Чакан понякога цяла
+                            седмица.
+                        </div>
+                    </div>
+
+                    <div class="charity-item">
+                        <div class="title-wrapper">
+                            <div class="charity-title">
+                                <div class="charity-participants-box "> 234 записани</div>
+                                Подкрепи бежанци с хранителни продукти, хигиенни материали и ученически пособия.
+
+                            </div>
+                        </div>
+                        <div class="popular-charity-description"> Сдружение “Гаврош” във Варна се превръща в пункт за
+                            хуманитарна помощ,
+                            който ще подкрепи усилията на Центъра за съдействие на бежанци в града. Удари рамо в мисията
+                            им - да помагат
+                            на хората, търсещи закрила в България.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+    </main>
 </body>
 
 </html>
