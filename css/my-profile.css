@@ -1,0 +1,216 @@
+main {
+    text-align: center;
+    color: black;
+    margin-bottom: 0px;
+}
+
+.main-profile-pic {
+    width: 170px;
+    height: 170px;
+    line-height: 170px;
+    border-radius: 100%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.name {
+    font-weight: 700;
+    font-size: 20px;
+    margin: 10px;
+    display: inline;
+}
+
+.ok-img {
+    width: 23px;
+    display: inline;
+}
+
+.username {
+    margin: 15px;
+    font-size: 18px;
+}
+
+.points {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.trophy-icon {
+    width: 30px;
+    display: inline;
+    margin-right: 10px;
+}
+
+.points-cnt {
+    display: inline;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.activity-info {
+    display: inline-block;
+    margin: 0px;
+    padding: 7px 15px;
+    background-color: white;
+    border: 1px solid rgb(168, 163, 163);
+    width: 500px;
+    text-align: left;
+}
+
+.joins {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.charities {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top: none;
+}
+
+.cnt {
+    display: inline;
+    background-color: rgb(222, 216, 216);
+    border: 1px solid rgb(168, 163, 163);
+    padding: 2px;
+    border-radius: 5px;
+    float: right;
+    margin-left: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.btn-wrapper {
+
+    text-align: right;
+    margin: 20px;
+    margin-top: 0px;
+    margin-left: -200px;
+}
+
+.my-charities-btn {
+    width: 150px;
+    height: 40px;
+    background: #2B3C91;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #F9F9F9;
+    display: inline-block;
+    margin: 20px;
+}
+
+#btn-participations{
+    margin-right:0px;
+}
+
+
+.logout-btn{
+    width: 150px;
+    height: 40px;
+    background: #d23e11;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #F9F9F9;
+}
+
+.logout-btn:hover{
+    cursor: pointer;
+    background: #d9613c;
+}
+
+.my-charities-btn:hover {
+    background: #4b62d4;
+    cursor: pointer;
+}
+
+body {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url("../images/background.jpg");
+    background-size: cover;
+    margin: 0px;
+}
+
+header {
+    background-color: white;
+    padding: 8px;
+}
+
+.charities-header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.charities-heading {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    color: #2B3C91;
+    margin: 20px;
+    margin-bottom: 15px;
+    align-self: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.charities-window {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 1224px;
+    height: 598px;
+    border: 2px solid #000000;
+    z-index: 2;
+    flex-direction: column;
+}
+
+.charities-header span {
+    align-self: flex-end;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: 10px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #000000;
+}
+
+.charity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #EBEBEB;
+    height: 85px;
+}
+
+.charity:first-of-type {
+    border-top: 1px solid #EBEBEB;
+}
+
+.charity-name {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #252B42;
+    margin-left: 60px;
+}
+
+.x-button {
+    height: 85px;
+    width: 65px;
+}
+
+.delete-btn{
+    height: 30px;
+    width: 30px;
+    margin-right: 60px;
+}

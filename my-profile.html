@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Моят профил</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/my-profile.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+
+<body>
+<header onclick="location.href='home.html'">
+  <div class="title-logo-wrapper" onclick="location.href='home.html'">
+    <div class="title">Charity</div>
+    <img class="header-logo" src="./images/logo_notext.png">
+    <div class="title">Champs</div>
+  </div>
+</header>
+<main>
+  <nav class="navbar">
+    <div class="links-wrapper">
+      <a class="link" href="home.html">Начало</a>
+      <a class="link" href="catalog.html">Каузи</a>
+      <a class="link" href="champions.html">Шампиони</a>
+    </div>
+    <div class="search-root">
+      <div class="search-wrapper">
+        <input class="searchfield" />
+        <div class="search-overlay">
+          <i class="fas fa-search"></i>
+          <span>Търси</span>
+        </div>
+      </div>
+    </div>
+    <div class="actions-wrapper">
+      <button class="create-btn" onclick="location.href='create.html'">Създай кауза</button>
+      <a href="my_profile.html">
+        <img class="profile-pic" src="./images/champions_1.jpg">
+      </a>
+    </div>
+  </nav>
+
+  <section class="content">
+    <img class="main-profile-pic" src="./images/champions_1.jpg">
+    <div>
+      <p class="name">Нина Йорданова</p>
+    </div>
+    <div class="username">nina_y</div>
+    <div class="points">
+      <img class="trophy-icon" src="./images/trophy.png" alt="trophy image">
+      <p class="points-cnt">153 точки</p>
+    </div>
+    <div>
+      <div class="activity-info joins">Брой участия в каузи
+        <p class="cnt">140</p>
+      </div>
+    </div>
+
+    <div class="activity-info charities">Брой създадени каузи
+      <p class="cnt">13</p>
+    </div>
+    <div class="btn-wrapper">
+      <button id="btn-participations" class="my-charities-btn">Записани каузи</button>
+      <button id="btn-my-charities" class="my-charities-btn">Моите каузи</button>
+      <button class="logout-btn" onclick="location.href='index.html'">Изход</button>
+    </div>
+
+  </section>
+
+  <div id="participations-window" class="hidden  charities-window">
+    <h2 class="charities-heading">Каузи, за които съм записан</h2>
+    <div class="charity">
+      <span class="charity-name">Пожар в Стара Планина</span>
+    </div>
+    <div class="charity">
+      <span class="charity-name">Помощ за бежанци</span>
+    </div>
+    <div class="charity">
+      <span class="charity-name">Помощ за възрастни хора в северозападна България</span>
+    </div>
+    <div class="charity">
+      <span class="charity-name">Да оправим градинката в село Баница</span>
+    </div>
+    <div class="charity">
+      <span class="charity-name">Почистване на отпадъци в Пловдив</span>
+    </div>
+    <div class="button-wrapper">
+      <img class="x-button" src="./images/X-button.png">
+    </div>
+  </div>
+
+  <div id="charities-window" class="hidden  charities-window">
+    <h2 class="charities-heading">Моите каузи</h2>
+    <div class="charity">
+      <span class="charity-name">Пожар в Стара Планина</span>
+      <img class="delete-btn" src="./images/Red_X.svg.png">
+    </div>
+    <div class="charity">
+      <span class="charity-name">Помощ за бежанци</span>
+      <img class="delete-btn" src="./images/Red_X.svg.png">
+    </div>
+    <div class="charity">
+      <span class="charity-name">Помощ за възрастни хора в северозападна България</span>
+      <img class="delete-btn" src="./images/Red_X.svg.png">
+    </div>
+    <div class="charity">
+      <span class="charity-name">Да оправим градинката в село Баница</span>
+      <img class="delete-btn" src="./images/Red_X.svg.png">
+    </div>
+    <div class="charity">
+      <span class="charity-name">Почистване на отпадъци в Пловдив</span>
+      <img class="delete-btn" src="./images/Red_X.svg.png">
+    </div>
+    <div class="button-wrapper">
+      <img class="x-button" src="./images/X-button.png">
+    </div>
+  </div>
+
+</main>
+<script src="./JavaScript/my-profile.js"></script>
+</body>
+
+</html>
