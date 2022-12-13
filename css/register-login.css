@@ -1,0 +1,128 @@
+:root {
+    --dark-blue: #2B3C91;
+    --hover-blue: #4b62d4;
+    --white-bg: #FFFFFF;
+    --light-grey:#e6e6e6;
+    --bg-color: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url("../images/background.jpg");
+}
+
+body {
+    background-image: var(--bg-color);
+    background-size: cover;
+    color: var(--dark-blue);
+    font-family: 'Montserrat';
+    font-size: 14px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3em;
+}
+
+.logo-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header-logo{
+    display: inline;
+    width: 25%;
+}
+.title{
+    display: inline;
+    font-family: 'Baskervville';
+    color: var(--dark-blue);
+    font-size: 40px;
+    margin: 0 20px;
+}
+
+button {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 1em 2em;
+    border-radius: 37px;
+    font-weight: 700;
+    font-family: 'Montserrat';
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+span {
+    font-family: "Montserrat";
+    font-weight: 700;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.input-field {
+    background: var(--white-bg);
+    border: 1px solid var( --light-grey);
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 450px;
+    padding: 1em;
+    margin: 0.7em;
+}
+
+.input-field::placeholder {
+    color: grey;
+}
+
+.input-field:last-of-type {
+    margin-bottom: 5px;
+}
+
+.input-field:first-of-type {
+    margin-top: 5px;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin-top: 2em;
+}
+
+.heading {
+    font-weight: 600;
+    font-size: 1.7em;
+    margin-top: 1.5em; 
+    font-family: "Montserrat";
+}
+
+.main-btn{
+    background: var(--dark-blue);
+    color: var(--white-bg);
+}
+
+.main-btn:hover {
+    background: var(--hover-blue);
+}
+
+.alternative-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5em;
+}
+
+.alternative-btn {
+    background: var(--white-bg);
+    border: 2px solid var(--dark-blue);
+    color: var(--dark-blue);
+    margin-left: 2em;
+}
+
+.alternative-btn:hover {
+    background:var( --light-grey) ;
+}
