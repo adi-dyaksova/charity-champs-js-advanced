@@ -1,3 +1,13 @@
+:root {
+    --dark-blue: #2B3C91;
+    --hover-blue: #4b62d4;
+    --white-bg: #FFFFFF;
+    --light-grey:#e6e6e6;
+    --bg-color: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url("../images/background.jpg");
+    --dark-grey: #252B42;
+    --lighter-grey: rgb(244, 244, 244);
+}
+
 header {
     display: flex;
     justify-content: center;
@@ -25,14 +35,14 @@ header {
     font-weight: 400;
     font-size: 40px;
     font-family: 'Baskervville';
-    color: #2B3D91;
+    color: var(--dark-blue);
 }
 
 main {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url("../images/background.jpg");
+    background-image: var(--bg-color);
     background-size: auto auto;
     background-size: cover;
-    color: #2B3C91;
+    color: var(--dark-blue);
     font-family: 'Montserrat';
     margin-left: calc(50% - 50vw);
     width: 100vw;
@@ -54,7 +64,7 @@ main {
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
-    color: #2B3C91;
+    color: var(--dark-blue);
     text-decoration: none;
     margin-right: 30px;
 }
@@ -69,8 +79,8 @@ main {
 .searchfield {
     width: 519px;
     height: 35px;
-    border: 1px solid #eeebf1;
-    background-color: #F9F9F9;
+    border: 1px solid var(--light-grey);
+    background-color: var(--white-bg);
     border-radius: 30px;
     font-size: 18px;
 }
@@ -110,17 +120,17 @@ main {
 .create-btn {
     width: 100%;
     height: 40px;
-    background: #2B3C91;
+    background: var(--dark-blue);
     border-radius: 25px;
     font-size: 16px;
     font-weight: 600;
-    color: #F9F9F9;
+    color: var(--white-bg);
     margin-left: 40px;
     margin-right: 40px;
 }
 
 .create-btn:hover {
-    background: #576de0;
+    background: var(--hover-blue);
     cursor: pointer;
 }
 
@@ -151,7 +161,7 @@ body {
 }
 
 a:hover {
-    color: #576de0;
+    color: var(--hover-blue);
 }
 
 button:hover {
