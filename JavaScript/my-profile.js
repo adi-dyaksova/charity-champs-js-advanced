@@ -19,9 +19,10 @@ function toggle_charities(el) {
     document.querySelector(".navbar").classList.toggle("opacity");
 };
 
-document.querySelectorAll(".delete-btn").forEach(btn => {
+document.querySelectorAll(".delete-charity").forEach(btn => {
     btn.addEventListener("click", () => {
         const to_delete = btn.parentElement;
-        my_charities_window.removeChild(to_delete)
+        if (to_delete.classList.contains("my-charities")) my_charities_window.removeChild(to_delete);
+        else if (to_delete.classList.contains("participations")) participants_window.removeChild(to_delete);
     })
 })
