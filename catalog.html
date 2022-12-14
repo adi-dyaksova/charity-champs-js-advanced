@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+  <link rel="stylesheet" href="./css/homepage.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/catalog.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <script src="https://kit.fontawesome.com/596f1933be.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+<header onclick="location.href='home.html'">
+  <div class="title-logo-wrapper" onclick="location.href='home.html'">
+    <div class="title">Charity</div>
+    <img class="header-logo" src="./images/logo_notext.png">
+    <div class="title">Champs</div>
+  </div>
+</header>
+<main>
+  <nav class="navbar">
+    <div class="links-wrapper">
+      <a class="link" href="home.html">Начало</a>
+      <a class="link" href="catalog.html">Каузи</a>
+      <a class="link" href="champions.html">Шампиони</a>
+    </div>
+    <div class="search-root">
+      <div class="search-wrapper">
+        <input class="searchfield" />
+        <div class="search-overlay">
+          <i class="fas fa-search"></i>
+          <span>Търси</span>
+        </div>
+      </div>
+    </div>
+    <div class="actions-wrapper">
+      <button class="create-btn" type="button" onclick="location.href='create-cause.html'">Създай кауза</button>
+      <a href="my_profile.html">
+        <img class="profile-pic" src="./images/profile_picture.jpg">
+      </a>
+    </div>
+  </nav>
+
+  <section class="main-page">
+
+    <section class="categories-wrapper">
+      <div class="categories-header">
+        <h2 class="categories-heading">Категории</h2>
+        <button class="filters-button" onclick="changeVisibility()"><i class="fa">&#xf1de;</i></button>
+      </div>
+      <div id="categories" class="categories-list">
+        <div class="category-button">Бедствия/кризи</div>
+        <div class="category-button">Бежанци/eмигранти</div>
+        <div class="category-button">Деца</div>
+        <div class="category-button">Домове</div>
+        <div class="category-button">Възрастни</div>
+        <div class="category-button">Животни</div>
+        <div class="category-button">Образование</div>
+        <div class="category-button">Здраве</div>
+        <div class="category-button">Култура/изкуство</div>
+        <div class="category-button">Хора с увреждания</div>
+        <div class="category-button">Други</div>
+      </div>
+      <div id="filters" class="filters-list no-display">
+        <div class="switch-wrapper">
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+          Спешни каузи
+        </div>
+        <div class="filter-item">
+          <h3>Време</h3>
+          <label class="option-container">До 5 минути
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+          <label class="option-container">До час
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="option-container">До ден
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="option-container">До няколко дни
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="option-container">Дългосрочно
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+
+        <div class="filter-item">
+          <h3>Място</h3>
+          <label class="option-container">Перник
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+          <label class="option-container">София
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="option-container">Варна
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="option-container">Пазарджик
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="option-container">Смолян
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="option-container">Кюстендил
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="option-container">Бургас
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="option-container">Видин
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="option-container">Ловеч
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="option-container">Плевен
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="option-container">Ямбол
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="charities-wrapper">
+        <div class="charities-catalog">
+            <div class="charity-wrapper">
+                <div class="charity-content">
+                    <div class="charity-heading" >
+                            <span onclick="location.href='charity.html'">Бъди доброволец на Open Buzludzha Fest ‘22</span>
+                        <button class="expand-button"><i class="fa">&#xf105;</i></button>
+                    </div>
+                    <div class="charity-description hidden">
+                        <p>
+                            Ако и ти вярваш, че монументът е едно от най-интересните места в България,
+                            концентрирало в себе си архитектурното
+                            наследство на един дълъг период в нашата история, подкрепи мисията на екипа: скоро
+                            той отново да е отворен за
+                            посетители.
+                        </p>
+                    </div>
+                </div>
+                <div class="charity-content">
+                    <div class="charity-heading">
+                        <span>Помагай с ремонтa в новата сграда на младежкия център T.R.A.P. в София</span>
+                        <button class="expand-button"><i class="fa">&#xf105;</i></button>
+                    </div>
+                    <div class="charity-description hidden">
+                        <p>
+                            Репетиционна, звукозаписно студио, библиотека и зала за танци за всички тийнейджъри,
+                            които искат да развиват талантите
+                            си и да гонят мечтите си. Ако и на теб ти звучи супер яко, удари едно рамо в
+                            ремонтните дейности.
+                        </p>
+                    </div>
+                </div>
+                <div class="charity-content">
+                    <div class="charity-heading">
+                        <span>Бъди доброволец на “Литературни срещи” в София</span>
+                        <button class="expand-button"><i class="fa">&#xf105;</i></button>
+                    </div>
+                    <div class="charity-description hidden">
+                        <p>
+                            Влез зад кулисите на фестивала и помогни срещите между писателите и техните читатели
+                            да се случат по най-прекрасния
+                            начин.
+                        </p>
+                        <p>
+                            „Литературни срещи“ е новата поредица от събития на фондация „Прочети София“, която
+                            ще следва концепцията от своето име:
+                            да кани различни интересни гости от света на литературата и да ги среща с публиката
+                            в най-различни формати.
+                        </p>
+                        <p>
+                            Първото ѝ издание кани на гости носителката на Нобелова награда за литература за
+                            2018 - Олга Токарчук. Както можеш да си
+                            представиш, това е много важно събитие, но не е единствено – фестивалът ще се
+                            проведе на 10 и 11 юни в РЦСИ
+                            „Топлоцентрала“ и освен тази значима среща, в програмата се нареждат още куп
+                            вълнуващи четения, изложби, бързи срещи с
+                            творци и учени, поетически видео триптих и интерактивни инсталации.
+                        </p>
+                    </div>
+                </div>
+                <div class="charity-content">
+                    <div class="charity-heading">
+                        <span>Подкрепи с материали арт занималня за деца в село Бяга</span>
+                        <button class="expand-button"><i class="fa">&#xf105;</i></button>
+                    </div>
+                    <div class="charity-description hidden">
+                        <p>
+                            Читалището в пазарджишкото село готви летни арт занимания за най-малко 20 деца, но
+                            се сблъсква с един проблем:
+                            родителите на голяма част от тях не могат да си позволят да закупят материали. Уви,
+                            читалището също. На ход си ти -
+                            подари им бои, четки, скицници.
+                        </p>
+                    </div>
+                </div>
+                <div class="charity-content">
+                    <div class="charity-heading">
+                        <span>Бъди доброволец на летен скаутски лагер Узана 2022</span>
+                        <button class="expand-button"><i class="fa">&#xf105;</i></button>
+                    </div>
+                    <div class="charity-description hidden">
+                        <p>
+                            В случай че кажеш “Хайде!”, можеш да очакваш строежи от дърво и сезал, приключенски
+                            походи и песни до лагерни огньове.
+                            Да кодираш съобщения на морз и да се криеш в гората под мъх и шума. Да виждаш как
+                            млади хора да израстват пред очите ти
+                            почти като на игра. И най-вече – да бъдеш част от най-сплотената дружина, стъпвала
+                            по родните ни китни краища.
+                        </p>
+                    </div>
+                </div>
+                <div class="charity-content">
+                    <div class="charity-heading">
+                        <span>Създай оригами жерави в подкрепа на хората с множествена склероза</span>
+                        <button class="expand-button"><i class="fa">&#xf105;</i></button>
+                    </div>
+                    <div class="charity-description hidden">
+                        <p>
+                            Легендата гласи, че който сгъне 1000 хартиени жерава, получава шанс желанието на
+                            сърцето му да се сбъдне. Създай
+                            хартиено ято и можеш да дадеш крила на хора, които имат една голяма мечта: да живеят
+                            възможно най-пълноценно.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="pages">
+                <a href="" class="page-button">Previous</a>
+                <a href="" class="page-button">1</a>
+                <a href="" class="page-button">2</a>
+                <a href="" class="page-button">3</a>
+                <a href="" class="page-button">Next</a>
+            </footer>
+
+        </div>
+    </section>
+
+
+  </section>
+
+</main>
+<script src="./JavaScript/catalog.js"></script>
+<script src="./JavaScript/index.js"></script>
+</body>
+
+</html>

@@ -209,8 +209,16 @@ header {
     width: 65px;
 }
 
+.x-button:hover{
+    cursor: pointer;
+}
+
 .delete-btn{
     height: 30px;
     width: 30px;
     margin-right: 60px;
+}
+
+.delete-btn:hover{
+    cursor: pointer;
 }

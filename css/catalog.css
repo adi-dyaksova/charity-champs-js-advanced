@@ -23,17 +23,17 @@
 
 .filters-button {
     margin-right: 20px;
-    width: 56px;
-    height: 46px;
-    background: #2B3C91;
+    width: 50px;
+    height: 40px;
+    background: var(--dark-blue);
     border-radius: 5px;
     color: white;
     font-size: 25px;
-    font-weight: 100;
+    font-weight: 100; 
 }
 
 .filters-button:hover {
-    background: #576de0;
+    background: var(--hover-blue);
     cursor: pointer;
 }
 
@@ -42,27 +42,31 @@
     overflow-y: scroll;
     height: 80%;
     width: 100%;
-    background-color: #FBFBFB;
+    background-color: var(--white-bg);
     overflow-x: hidden;
-    border: 1px solid #b8b8b8;
+    border: 1px solid var(--light-grey);
     margin-left: 3px;
 }
 
 .category-button {
     width: 22.99vw;
     height: 3vw;
-    border: 1px solid #EBEBEB;
+    border: 1px solid var(--light-grey);
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    color: #252B42;
+    color: var(--dark-grey);
     display: flex;
     align-items: center;
     padding-left: 25px;
-    margin-left: 8px;
-    
+    margin-left: 8px;   
 }
+
+.category-button:hover{
+    cursor: pointer;
+}
+
 
 .charities-wrapper {
     display: flex;
@@ -78,8 +82,8 @@
 
 .charity-heading {
     height: 3vw;
-    border: 1px solid #EBEBEB;
-    background-color: rgb(255, 255, 255);
+    border: 1px solid var(--light-grey);
+    background-color: var(--white-bg);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -105,3 +109,40 @@
     display: none !important;
 }
 
+.charity-description {
+    background: var(--lighter-grey);
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.2px;
+    color: var(--dark-grey);
+    padding: 20px;
+}
+
+.expanded {
+    background: var(--dark-blue) !important;
+    color: var(--light-grey) !important;
+}
+
+.expanded-charity {
+    background: var(--light-grey);
+    border-bottom: none;
+}
+
+.active-category {
+     border-left: 3px solid var(--dark-blue) !important; 
+   
+}
+
+.pages {
+    justify-content: right;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.page-button {
+    display: inline;
+    margin-right: 15px;
+}
