@@ -218,3 +218,7 @@ header {
 .delete-charity:hover{
     cursor: pointer;
 }
+
+.x-button:hover{
+    cursor: pointer;
+}
