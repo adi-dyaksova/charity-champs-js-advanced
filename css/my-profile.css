@@ -208,17 +208,13 @@ header {
     height: 85px;
     width: 65px;
 }
-
-.x-button:hover{
-    cursor: pointer;
-}
-
-.delete-btn{
-    height: 30px;
-    width: 30px;
+.delete-charity{
+    color: rgb(154, 30, 30);
+    font-size: 20px;
+    font-weight: 800;
     margin-right: 60px;
 }
 
-.delete-btn:hover{
+.delete-charity:hover{
     cursor: pointer;
 }
