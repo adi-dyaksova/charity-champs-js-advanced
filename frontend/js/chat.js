@@ -56,7 +56,7 @@ function outputMessage(message) {
   const p = document.createElement('p');
   p.classList.add('meta');
   p.innerText = message.username;
-  p.innerHTML += `<span>${message.time}</span>`;
+  p.innerHTML += `<span> ${message.time}</span>`;
   div.appendChild(p);
   const para = document.createElement('p');
   para.classList.add('text');
@@ -82,7 +82,8 @@ function outputUsers(users) {
 
 //Prompt the user before leave chat room
 document.getElementById('leave-btn').addEventListener('click', () => {
-  const leaveRoom = confirm('Are you sure you want to leave the chatroom?');
+  //Да има ли този alert
+  const leaveRoom = confirm('Сигурен ли си, че искаш на напуснеш стаята?');
   if (leaveRoom) {
     window.location = '../index.html';
   } else {
