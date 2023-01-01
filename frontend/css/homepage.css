@@ -311,3 +311,35 @@ input:checked+.slider:before {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+.popup {
+    font-size: 16px;
+    color: #2B3C91;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat';
+    padding-right: 30px;
+    padding-bottom: 10px;
+}
+
+.popup a {
+    -webkit-text-fill-color: #2B3C91;
+    font-size: 20px;
+    -webkit-text-stroke-width: 1px;
+    font-family: 'Montserrat';
+}
+
+.popup a:hover {
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-color: #2B3C91;
+}
+
+.popup a:visited {
+    -webkit-text-fill-color: #2B3C91;
+}
+
+/* popup-window стилове */
