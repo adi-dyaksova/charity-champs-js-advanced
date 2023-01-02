@@ -28,7 +28,7 @@
 }
 
 .main-page {
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 2%;
 }
 
@@ -266,8 +266,22 @@ input:checked+.slider:before {
 .filter-item {
     border: 1px solid #ccc;
     margin: 3%;
-    padding: 3%;
+    padding-left: 3%;
 }
+
+.filter-heading{
+    /* height: 3vw;
+    border: 1px solid var(--light-grey);
+    background-color: var(--white-bg); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.expand-category-button{
+    margin-right: 2em;
+}
+
 
 /* Create a custom checkbox */
 .checkmark {
