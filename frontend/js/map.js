@@ -15,12 +15,12 @@ function getCoords(pos) {
 }
 
 
-const test = new CharityMarker(1, 23.320039, 42.696156, "Подкрепи бежанци с хранителни продукти")
-const test2 = new CharityMarker(1, 23.320039, 42.676156, "Разходи кучетата от общинския приют в Перник")
+const test = new CharityMarker(1, 23.320039, 42.696156, "Подкрепи бежанци с хранителни продукти", false, "Refugees")
+const test2 = new CharityMarker(1, 23.320039, 42.676156, "Разходи кучетата от общинския приют в Перник", true, "Animals")
 
 const test_db = [test, test2]
 test_db.forEach(charity => {
-    const marker = new mapboxgl.Marker()
+    const marker = new mapboxgl.Marker({color: charity.isUrgent? "red" : "lightblue"})
         .setLngLat([charity.longitude, charity.latitude])
         .setPopup(new mapboxgl.Popup({
             className: "popup-window",

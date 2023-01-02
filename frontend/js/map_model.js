@@ -1,9 +1,11 @@
 export class CharityMarker {
-    constructor(id, longitude, latitude, title) {
+    constructor(id, longitude, latitude, title, isUrgent, category) {
         this.id = id
         this.longitude = longitude
         this.latitude = latitude
         this.title = title
+        this.isUrgent = isUrgent
+        this.category = category
     }
 
 
