@@ -12,9 +12,14 @@ function getCoords(pos) {
     map.flyTo({ center: [pos.coords.longitude, pos.coords.latitude], zoom: 12 })
 }
 
-map.on('click', 'countries', (e) => {
-    new mapboxgl.Popup()
-    .setLngLat(e.lngLat)
-    .setHTML(`Country name: ${e.features[0].properties.name}`)
-    .addTo(map);
-    });
+let marker = false;
+
+map.on('click', (e) => {
+    if (marker) marker.remove()
+    marker = new mapboxgl.Marker()
+        .setLngLat([e.lngLat.lng, e.lngLat.lat]).addTo(map)
+
+});
+
+//marker.getLngLat() връща обект с координатите
+
