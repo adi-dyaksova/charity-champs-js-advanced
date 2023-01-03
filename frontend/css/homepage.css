@@ -178,12 +178,31 @@ h3 {
     border-bottom: 1px solid #bdbdbd;
 }
 
+.switch-wrapper-location{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: none;
+}
+
+
 .switch {
     position: relative;
     display: inline-block;
     width: 70px;
     height: 34px;
     margin: 5%;
+}
+
+.switch-location {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 34px;
+
+    margin-top: 5%;
+    margin-bottom: 7%;
+    margin-right: 5%;
 }
 
 .switch input {
@@ -268,11 +287,11 @@ input:checked+.slider:before {
     margin: 3%;
     padding-left: 3%;
 }
+.filter-item:hover{
+    cursor: pointer;
+}
 
 .filter-heading{
-    /* height: 3vw;
-    border: 1px solid var(--light-grey);
-    background-color: var(--white-bg); */
     display: flex;
     justify-content: space-between;
     align-items: center;

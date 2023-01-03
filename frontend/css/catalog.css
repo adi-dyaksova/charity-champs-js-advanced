@@ -30,23 +30,6 @@ cursor: pointer;
 color: var(--hover-blue);
 }
 
-/* .filters-button {
-    margin-right: 20px;
-    width: 50px;
-    height: 40px;
-    background: var(--dark-blue);
-    border-radius: 5px;
-    color: white;
-    font-size: 25px;
-    font-weight: 100; 
-} */
-/* .filters-icon {
-    margin-right: 20px;
-
-    color: var(--dark-blue);
-    font-size: 25px;
-
-} */
 
 .filters-button:hover {
     background: var(--hover-blue);
@@ -63,25 +46,6 @@ color: var(--hover-blue);
     border: 1px solid var(--light-grey);
     margin-left: 3px;
 }
-
-/* .category-button {
-    width: 22.99vw;
-    height: 3vw;
-    border: 1px solid var(--light-grey);
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    color: var(--dark-grey);
-    display: flex;
-    align-items: center;
-    padding-left: 25px;
-    margin-left: 8px;   
-}
-
-.category-button:hover{
-    cursor: pointer;
-} */
 
 
 .charities-wrapper {
