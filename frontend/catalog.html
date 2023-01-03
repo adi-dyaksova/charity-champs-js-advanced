@@ -50,104 +50,154 @@
 
   <section class="main-page">
     <section class="categories-wrapper">
-      <div class="categories-header">
-        <h2 class="categories-heading">Категории</h2>
-        <button class="filters-button" onclick="changeVisibility()"><i class="fa">&#xf1de;</i></button>
-      </div>
-      <div id="categories" class="categories-list">
-        <div class="category-button">Бедствия/кризи</div>
-        <div class="category-button">Бежанци/eмигранти</div>
-        <div class="category-button">Деца</div>
-        <div class="category-button">Домове</div>
-        <div class="category-button">Възрастни</div>
-        <div class="category-button">Животни</div>
-        <div class="category-button">Образование</div>
-        <div class="category-button">Здраве</div>
-        <div class="category-button">Култура/изкуство</div>
-        <div class="category-button">Хора с увреждания</div>
-        <div class="category-button">Други</div>
-      </div>
-      <div id="filters" class="filters-list no-display">
-        <div class="switch-wrapper">
-          <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-          </label>
-          Спешни каузи
+        <div class="filters-header">
+            <h2 class="filters-heading">Филтри</h2>
         </div>
-        <div class="filter-item">
-          <h3>Време</h3>
-          <label class="option-container">До 5 минути
-            <input type="checkbox" checked="checked">
-            <span class="checkmark"></span>
-          </label>
-          <label class="option-container">До час
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="option-container">До ден
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="option-container">До няколко дни
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="option-container">Дългосрочно
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </div>
+        <div id="filters" class="filters-list">
+            <div class="switch-wrapper">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                Спешни каузи
+            </div>
+            <div class="filter-item">
+                <div class="filter-heading" onclick="changeVisibility(0)">
+                <h3 class="filter-name" >Категория</h3>
+                <button class="expand-category-button"><i class="fa">&#xf105;</i></button>
+                </div>
+                <div class="options-wrapper no-display">
+                <label class="option-container">Бедствия/кризи
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Бежанци/eмигранти
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Деца
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Домове
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Възрастни
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Животни
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Образование
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Здраве
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Култура/изкуство
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            </div>
 
-        <div class="filter-item">
-          <h3>Място</h3>
-          <label class="option-container">Перник
-            <input type="checkbox" checked="checked">
-            <span class="checkmark"></span>
-          </label>
-          <label class="option-container">София
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="option-container">Варна
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="option-container">Пазарджик
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="option-container">Смолян
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="option-container">Кюстендил
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="option-container">Бургас
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="option-container">Видин
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="option-container">Ловеч
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="option-container">Плевен
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          <label class="option-container">Ямбол
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </div>
+            <div class="filter-item">
+                <div class="filter-heading" onclick="changeVisibility(1)">
+                    <h3 class="filter-name" >Времетраене</h3>
+                    <button class="expand-category-button"><i class="fa">&#xf105;</i></button>
+                    </div>
+                <div class="options-wrapper no-display">
+                <label class="option-container">До 5 минути
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">До час
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">До ден
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">До няколко дни
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Дългосрочно
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            </div>
 
-      </div>
+            <div class="filter-item">
+                <div class="filter-heading" onclick="changeVisibility(2)">
+                    <h3 class="filter-name" >Локация</h3>
+                    <button class="expand-category-button"><i class="fa">&#xf105;</i></button>
+                    </div>
+                <div class="options-wrapper no-display">
+                    <div class="switch-wrapper-location">
+                        <label class="switch-location">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        Близо до мен
+                    </div>
+                   
+                <label class="option-container">Перник
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">София
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Варна
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Пазарджик
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Смолян
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Кюстендил
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Бургас
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Видин
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Ловеч
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Плевен
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="option-container">Ямбол
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            </div>
+            <!-- TODO: още градове и други филтри -->
+            <button class="save-filters-btn" >Запази филтри</button>
+        </div>
     </section>
 
     <section class="charities-wrapper">

@@ -170,18 +170,31 @@ a:hover {
 button:hover {
     cursor: pointer;
 }
+.save-filters-btn{
+    width: 8vw;
+    height: 3vw;
+    background: #2B3C91;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #F9F9F9;
+    padding: 1%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 31%;
+}
+.save-filters-btn:hover{
+    background-color: var(--hover-blue);
+}
 
 .chat-btn{
     width: 80%;
     height: 40px;
     background: var(--dark-blue);
     border-radius: 25px;
-    /* font-size: 16px; */
     font-weight: 600;
     color: var(--white-bg);
     margin-left: 20px;
-    /* margin-left: 20px;
-    margin-right: 20px; */
 }
 
 .chat-btn:hover{

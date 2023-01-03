@@ -28,7 +28,7 @@
 }
 
 .main-page {
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 2%;
 }
 
@@ -178,12 +178,31 @@ h3 {
     border-bottom: 1px solid #bdbdbd;
 }
 
+.switch-wrapper-location{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: none;
+}
+
+
 .switch {
     position: relative;
     display: inline-block;
     width: 70px;
     height: 34px;
     margin: 5%;
+}
+
+.switch-location {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 34px;
+
+    margin-top: 5%;
+    margin-bottom: 7%;
+    margin-right: 5%;
 }
 
 .switch input {
@@ -266,8 +285,22 @@ input:checked+.slider:before {
 .filter-item {
     border: 1px solid #ccc;
     margin: 3%;
-    padding: 3%;
+    padding-left: 3%;
 }
+.filter-item:hover{
+    cursor: pointer;
+}
+
+.filter-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.expand-category-button{
+    margin-right: 2em;
+}
+
 
 /* Create a custom checkbox */
 .checkmark {
