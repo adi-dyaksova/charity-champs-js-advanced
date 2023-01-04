@@ -10,12 +10,16 @@ const map = new mapboxgl.Map({
     zoom: 11
 });
 
-navigator.geolocation.getCurrentPosition(getCoords)
-function getCoords(pos) {
-    //error handling
-    map.flyTo({ center: [pos.coords.longitude, pos.coords.latitude], zoom: 12 })
+
+function flyToMe(_zoom) {
+    navigator.geolocation.getCurrentPosition(getCoords)
+    function getCoords(pos) {
+        //error handling
+        map.flyTo({ center: [pos.coords.longitude, pos.coords.latitude], zoom: _zoom })
+    }
 }
 
+flyToMe(12)
 
 const test = new CharityMarker(1, 23.320039, 42.696156, "Подкрепи бежанци с хранителни продукти", false, "Refugees")
 const test2 = new CharityMarker(1, 23.320039, 42.676156, "Разходи кучетата от общинския приют в Перник", true, "Animals")
@@ -34,5 +38,5 @@ test_db.forEach(charity => {
     currentMarkers.push(marker)
 })
 
-//marker.remove() премахва от маркера от картата
+//marker.remove() премахва маркера от картата
 
