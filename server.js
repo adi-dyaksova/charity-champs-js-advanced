@@ -4,6 +4,9 @@ const express = require("express");
 const socketio = require("socket.io");
 const formatMessage = require("./chat-utils/messages");
 
+const dbOperations = require('./database/dboperations');
+var User = require('./database/Models/User');
+
 const {
   userJoin,
   getCurrentUser,
@@ -14,6 +17,17 @@ const {
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
+
+var bodyParser = require('body-parser');
+var cors = require('cors');
+var router = express.Router();
+const host = "localhost";
+const port = 8080;
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cors());
+app.use('/api', router);
 
 // Set static folder
 app.use(express.static(path.join(__dirname, "frontend")));
@@ -73,6 +87,18 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT = 3000;
 
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.get('/users',(req, res) => {
+  dbOperations.getUsers().then(result => res.json(result));
+})
+
+app.post('/addUser',(req, res) => {
+  let user = {... req.body};
+  dbOperations.addUser(user).then(result => res.status(201).json(result));
+
+})
+
+
+server.listen(port, () => {
+  console.log(`Server is running at ${host}:${port}`)
+});

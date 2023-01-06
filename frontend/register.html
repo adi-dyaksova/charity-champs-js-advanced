@@ -19,15 +19,15 @@
         </div>
         <h1 class="heading">Регистрация</h1>
         <div class="input-wrapper"> 
-            <input type="email" class="input-field" placeholder="Имейл адрес" />
-            <input class="input-field" placeholder="Потребителско име" />
-            <input class="input-field" placeholder="Име" />
-            <input class="input-field" placeholder="Фамилия" />
-            <input type="password" class="input-field" placeholder="Парола" />
-            <input type="password" class="input-field" placeholder="Повтори паролата" />
+            <input type="email" class="input-field" id="email" placeholder="Имейл адрес" />
+            <input class="input-field" id="username" placeholder="Потребителско име" />
+            <input class="input-field" id="firstName" placeholder="Име" />
+            <input class="input-field" id="lastName" placeholder="Фамилия" />
+            <input type="password" id="password" class="input-field" placeholder="Парола" />
+            <input type="password" id="repeatedPassword" class="input-field" placeholder="Повтори паролата" />
         </div>
         <div class="button-wrapper">
-            <button class="main-btn" onclick="location.href='login.html'">Присъедини се</button>
+            <button class="main-btn" onclick="register()">Присъедини се</button>
             <div class="alternative-wrapper"> 
                 <span>Вече си се регистрирал?</span>
                 <button class="alternative-btn" type="button" onclick="location.href='login.html'">Вход</button>
@@ -35,5 +35,5 @@
         </div>
     </main>
 </body>
-
+<script src="./js/registration.js"></script>
 </html>

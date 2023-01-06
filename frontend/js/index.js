@@ -1,3 +1,4 @@
+
 function changeVisibility (ind) {
     var options = document.getElementsByClassName("options-wrapper")[ind];
     const expand_category_btn = document.querySelectorAll(".expand-category-button")[ind];
