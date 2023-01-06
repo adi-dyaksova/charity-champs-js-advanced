@@ -3,7 +3,7 @@
     --hover-blue: #4b62d4;
     --white-bg: #FFFFFF;
     --light-grey:#e6e6e6;
-    --bg-color: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url("../images/background.jpg");
+    --bg-color: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url("background.jpg");
     --dark-grey: #252B42;
     --lighter-grey: rgb(244, 244, 244);
 }
