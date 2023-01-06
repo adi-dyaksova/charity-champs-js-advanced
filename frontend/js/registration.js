@@ -1,5 +1,5 @@
 function register() {
-    //add validation
+    //TODO: add validation
     fetch("/addUser", {
         method: 'POST',
         mode: 'cors',
