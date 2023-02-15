@@ -19,11 +19,11 @@
         </div>
         <h1 class="heading">Вход</h1>
         <div class="input-wrapper">
-            <input type="email" class="input-field" placeholder="Имейл адрес" />
-            <input type="password" class="input-field" placeholder="Парола" />
+            <input id="email" type="email" class="input-field" placeholder="Имейл адрес" />
+            <input id="password" type="password" class="input-field" placeholder="Парола" />
         </div>
         <div class="button-wrapper">
-            <button class="main-btn" onclick="location.href='home.html'">Вход</button>
+            <button class="main-btn" onclick="login()">Вход</button>
             <div class="alternative-wrapper">
                 <span>Нямаш профил?</span>
                 <button class="alternative-btn" type="button" onclick="location.href='register.html'">Регистрирай се</button>
@@ -31,5 +31,5 @@
         </div>
     </main>
 </body>
-
+<script src="./js/login.js"></script>
 </html>
