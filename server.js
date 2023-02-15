@@ -29,6 +29,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/api', router);
+app.set('views', './frontend');
+app.set('view engine', 'ejs');
+
+app.get('/', function(req, res) {
+  res.render('index');
+});
 
 // Set static folder
 app.use(express.static(path.join(__dirname, "frontend")));
