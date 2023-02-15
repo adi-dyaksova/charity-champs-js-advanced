@@ -1,5 +1,6 @@
 var config = require('./dbconfig');
-const sql = require('mssql');
+// const sql = require('mssql');
+const sql = require('mssql/msnodesqlv8')
 
 
 async function getUsers() {
@@ -123,6 +124,33 @@ async function addUser(user) {
     }
 }
 
+//Add messages to db
+async function addMessage(message) { //TODO: create table in charity-champs.sql
+    try {
+        let pool = await sql.connect(config);
+        let insertMessage = await pool.request()
+            .input('username', sql.VarChar, message.username)
+            .input('text', sql.VarChar, message.text)
+            .input('time', sql.VarChar, message.time) //TODO: not varCHar
+            .input('room', sql.VarChar, message.room)
+            .execute("InsertMessages"); 
+        return insertMessage.recordsets; //?? recordsets
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+//getMeesages from db by room
+async function getMessages(room) {
+    try {
+        let pool = await sql.connect(config);
+        let messages = await pool.request().input('room', sql.VarChar, room).query("SELECT * FROM [MESSAGES] WHERE room = @room ORDER BY message_id " ); //TODO room won't be sql.Int
+        return messages.recordset;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     getUsers: getUsers,
     getCauses: getCauses,
@@ -134,5 +162,7 @@ module.exports = {
     getCity: getCity,
     getCategory: getCategory,
     getDuration: getDuration,
-    addUser: addUser
+    addUser: addUser,
+    addMessage:addMessage,
+    getMessages:getMessages
 }

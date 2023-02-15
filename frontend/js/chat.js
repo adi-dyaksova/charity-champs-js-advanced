@@ -21,7 +21,10 @@ socket.on('roomUsers', ({ room, users }) => {
 
 // Message from server
 socket.on('message', (message) => {
-  console.log(message);
+  
+  //  message.room=room;
+  //  console.log(message);
+
   outputMessage(message);
 
   // Scroll down
@@ -43,6 +46,8 @@ chatForm.addEventListener('submit', (e) => {
 
   // Emit message to server
   socket.emit('chatMessage', msg);
+
+
 
   // Clear input
   e.target.elements.msg.value = '';
