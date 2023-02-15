@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,105 +6,240 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Създай кауза</title>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/create-cause.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/create-cause.css">
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />
   <script src="https://kit.fontawesome.com/596f1933be.js" crossorigin="anonymous"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
 </head>
 
 <body>
 
-<!-- Това ограденото в коментари са логото и лентата, ако някой ще прави някоя от страниците нека copy-paste цялото нещо най-отгоре
+  <!-- Това ограденото в коментари са логото и лентата, ако някой ще прави някоя от страниците нека copy-paste цялото нещо най-отгоре
     и добави main.css файла за стиловете -->
-<header onclick="location.href='home.html'">
-  <div class="title-logo-wrapper" onclick="location.href='home.html'">
-    <div class="title">Charity</div>
-    <img class="header-logo" src="images/logo_notext.png">
-    <div class="title">Champs</div>
-  </div>
-</header>
-<main>
-  <nav class="navbar">
-    <div class="links-wrapper">
-      <a class="link" href="home.html">Начало</a>
-      <a class="link" href="catalog.html">Каузи</a>
-      <a class="link" href="champions.html">Шампиони</a>
+  <header onclick="location.href='home.html'">
+    <div class="title-logo-wrapper" onclick="location.href='home.html'">
+      <div class="title">Charity</div>
+      <img class="header-logo" src="./images/logo_notext.png">
+      <div class="title">Champs</div>
     </div>
-    <div class="search-root">
-      <div class="search-wrapper">
-        <input class="searchfield" />
-        <div class="search-overlay">
-          <i class="fas fa-search"></i>
-          <span>Търси</span>
+  </header>
+  <main>
+    <nav class="navbar">
+      <div class="links-wrapper">
+        <a class="link" href="home.html">Начало</a>
+        <a class="link" href="catalog.html">Каузи</a>
+        <a class="link" href="champions.html">Шампиони</a>
+      </div>
+      <div class="search-root">
+        <div class="search-wrapper">
+          <input class="searchfield" />
+          <div class="search-overlay">
+            <i class="fas fa-search"></i>
+            <span>Търси</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="actions-wrapper">
-      <button class="create-btn" type="button" onclick="location.href='create-cause.html'">Създай кауза</button>
-      <a href="my-profile.html">
-        <img class="profile-pic" src="images/profile_picture.jpg">
-      </a>
-    </div>
-  </nav>
-  <!-- Тук приключва лентата =====================================================================================================-->
+      <div class="actions-wrapper">
+        <button class="create-btn" type="button" onclick="location.href='create-cause.html'">Създай кауза</button>
+        <a href="my-profile.html">
+          <img class="profile-pic" src="./images/profile_picture.jpg">
+        </a>
+      </div>
+    </nav>
+    <!-- Тук приключва лентата =====================================================================================================-->
 
-  <!--Може би най-адекватния вариант за последваща обработка е да сложим цялото нещо във <form>, но засега
+    <!--Може би най-адекватния вариант за последваща обработка е да сложим цялото нещо във <form>, но засега
       ще го оставя така.-->
-  <section class="content">
-    <div class="sect">
-      <input class="inputs font-style" placeholder="Заглавие на каузата *" />
-      <select class="inputs selections font-style">
-        <option>Населено място *</option>
-        <option>София</option>
-        <option>Пловдив</option>
-        <option>Варна</option>
-        <option>Бургас</option>
-        <option>Стара Загора</option>
-      </select>
-      <select class="inputs selections font-style">
-        <option>Категория *</option>
-        <option>Бедствия/ кризи</option>
-        <option>Бежанци/емигранти</option>
-        <option>Деца</option>
-        <option>Домове</option>
-        <option>Възрастни</option>
-        <option>Животни</option>
-        <option>Образование</option>
-        <option>Здраве</option>
-        <option>Култура/ изкуство</option>
-      </select>
-      <select class="inputs selections font-style">
-        <option>Отнемащо време *</option>
-        <option>До 5 минути</option>
-        <option>До час</option>
-        <option>До ден</option>
-        <option>До ден</option>
-        <option>До няколко дни</option>
-        <option>Дългосрочно</option>
-      </select>
-      <textarea id="short-description" class="font-style" placeholder="Резюме на каузата (кратко описание) *"></textarea>
-      <textarea id="long-description" class="font-style" placeholder="Описание на каузата (в детайли) *"></textarea>
-      <div class="upload-wrapper font-style">
-        <span>Качи снимка (опционално)</span>
-        <div class="upload-picture-wrapper">
-          <label for="upload-picture" class="field-wrapper"><i class="fa">&#xf0c6;</i> Избери файл</label>
-          <input type="file" class="uploadfield" id="upload-picture" />
+    <section class="content">
+      <div class="sect">
+        <input class="inputs font-style" placeholder="Заглавие на каузата *" />
+        <select class="inputs selections font-style">
+          <option>Населено място *</option>
+          <option>София</option>
+          <option>Пловдив</option>
+          <option>Варна</option>
+          <option>Бургас</option>
+          <option>Стара Загора</option>
+        </select>
+        <select class="inputs selections font-style">
+          <option>Категория *</option>
+          <option>Бедствия/ кризи</option>
+          <option>Бежанци/емигранти</option>
+          <option>Деца</option>
+          <option>Домове</option>
+          <option>Възрастни</option>
+          <option>Животни</option>
+          <option>Образование</option>
+          <option>Здраве</option>
+          <option>Култура/ изкуство</option>
+        </select>
+        <select class="inputs selections font-style">
+          <option>Отнемащо време *</option>
+          <option>До 5 минути</option>
+          <option>До час</option>
+          <option>До ден</option>
+          <option>До ден</option>
+          <option>До няколко дни</option>
+          <option>Дългосрочно</option>
+        </select>
+        <textarea id="short-description" class="font-style"
+          placeholder="Резюме на каузата (кратко описание) *"></textarea>
+        <textarea id="long-description" class="font-style" placeholder="Описание на каузата (в детайли) *"></textarea>
+        <div class="upload-wrapper font-style">
+          <span>Качи снимка (опционално)</span>
+          <div class="upload-picture-wrapper">
+            <label for="upload-picture" class="field-wrapper"><i class="fa">&#xf0c6;</i> Избери файл</label>
+            <input type="file" class="uploadfield" id="upload-picture" />
+          </div>
         </div>
       </div>
-    </div>
-    <!--type="date" input-ите не може да им се слага placeholder, сещам се за начин да се оправи това, но
+      <!--type="date" input-ите не може да им се слага placeholder, сещам се за начин да се оправи това, но
         ми се струва, че е малко сложно, оставям го така и ако някой има идея може да го оправим-->
-    <div class="sect">
-      <input type="date" class="datepicker font-style" />
-      <input type="date" class="datepicker font-style" />
-      <div class="urgent-wrapper">
-        <input type="checkbox" class="checkbox" />
-        <span class="font-style"> Спешна кауза</span>
+      <div class="sect">
+        <input type="date" class="datepicker font-style" />
+        <input type="date" class="datepicker font-style" />
+        <div class="urgent-wrapper">
+          <input type="checkbox" class="checkbox" />
+          <span class="font-style"> Спешна кауза</span>
+        </div>
+        <section class="map">
+          <h2 class="map-header">Отбележете мястото на каузата</h2>
+          <div class="mapouter">
+            <div class="gmap_canvas" id="map">
+
+            </div>
+          </div>
+        </section>
+        <button class="publish-btn" type="button" onclick="location.href='charity.html'">Публикувай каузата</button>
       </div>
-      <button class="publish-btn" type="button" onclick="location.href='charity.html'">Публикувай каузата</button>
+    </section>
+  </main>
+
+  <script type="module" src="./js/create_cause.js"></script>
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Създай кауза</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/create-cause.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://kit.fontawesome.com/596f1933be.js" crossorigin="anonymous"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
+</head>
+
+<body>
+
+  <!-- Това ограденото в коментари са логото и лентата, ако някой ще прави някоя от страниците нека copy-paste цялото нещо най-отгоре
+    и добави main.css файла за стиловете -->
+  <header onclick="location.href='home.html'">
+    <div class="title-logo-wrapper" onclick="location.href='home.html'">
+      <div class="title">Charity</div>
+      <img class="header-logo" src="./images/logo_notext.png">
+      <div class="title">Champs</div>
     </div>
-  </section>
-</main>
+  </header>
+  <main>
+    <nav class="navbar">
+      <div class="links-wrapper">
+        <a class="link" href="home.html">Начало</a>
+        <a class="link" href="catalog.html">Каузи</a>
+        <a class="link" href="champions.html">Шампиони</a>
+      </div>
+      <div class="search-root">
+        <div class="search-wrapper">
+          <input class="searchfield" />
+          <div class="search-overlay">
+            <i class="fas fa-search"></i>
+            <span>Търси</span>
+          </div>
+        </div>
+      </div>
+      <div class="actions-wrapper">
+        <button class="create-btn" type="button" onclick="location.href='create-cause.html'">Създай кауза</button>
+        <a href="my-profile.html">
+          <img class="profile-pic" src="./images/profile_picture.jpg">
+        </a>
+      </div>
+    </nav>
+    <!-- Тук приключва лентата =====================================================================================================-->
+
+    <!--Може би най-адекватния вариант за последваща обработка е да сложим цялото нещо във <form>, но засега
+      ще го оставя така.-->
+    <section class="content">
+      <div class="sect">
+        <input class="inputs font-style" placeholder="Заглавие на каузата *" />
+        <select class="inputs selections font-style">
+          <option>Населено място *</option>
+          <option>София</option>
+          <option>Пловдив</option>
+          <option>Варна</option>
+          <option>Бургас</option>
+          <option>Стара Загора</option>
+        </select>
+        <select class="inputs selections font-style">
+          <option>Категория *</option>
+          <option>Бедствия/ кризи</option>
+          <option>Бежанци/емигранти</option>
+          <option>Деца</option>
+          <option>Домове</option>
+          <option>Възрастни</option>
+          <option>Животни</option>
+          <option>Образование</option>
+          <option>Здраве</option>
+          <option>Култура/ изкуство</option>
+        </select>
+        <select class="inputs selections font-style">
+          <option>Отнемащо време *</option>
+          <option>До 5 минути</option>
+          <option>До час</option>
+          <option>До ден</option>
+          <option>До ден</option>
+          <option>До няколко дни</option>
+          <option>Дългосрочно</option>
+        </select>
+        <textarea id="short-description" class="font-style"
+          placeholder="Резюме на каузата (кратко описание) *"></textarea>
+        <textarea id="long-description" class="font-style" placeholder="Описание на каузата (в детайли) *"></textarea>
+        <div class="upload-wrapper font-style">
+          <span>Качи снимка (опционално)</span>
+          <div class="upload-picture-wrapper">
+            <label for="upload-picture" class="field-wrapper"><i class="fa">&#xf0c6;</i> Избери файл</label>
+            <input type="file" class="uploadfield" id="upload-picture" />
+          </div>
+        </div>
+      </div>
+      <!--type="date" input-ите не може да им се слага placeholder, сещам се за начин да се оправи това, но
+        ми се струва, че е малко сложно, оставям го така и ако някой има идея може да го оправим-->
+      <div class="sect">
+        <input type="date" class="datepicker font-style" />
+        <input type="date" class="datepicker font-style" />
+        <div class="urgent-wrapper">
+          <input type="checkbox" class="checkbox" />
+          <span class="font-style"> Спешна кауза</span>
+        </div>
+        <section class="map">
+          <h2 class="map-header">Отбележете мястото на каузата</h2>
+          <div class="mapouter">
+            <div class="gmap_canvas" id="map">
+
+            </div>
+          </div>
+        </section>
+        <button class="publish-btn" type="button" onclick="location.href='charity.html'">Публикувай каузата</button>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="./js/create_cause.js"></script>
 </body>
 
 </html>
