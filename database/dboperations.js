@@ -124,6 +124,30 @@ async function addUser(user) {
     }
 }
 
+async function addCause(cause) {
+    try {
+        let pool = await sql.connect(config);
+        let insertCause = await pool.request()
+            .input('name', sql.VarChar, cause.name)
+            .input('short_description', sql.VarChar, cause.short_description)
+            .input('long_description', sql.VarChar, cause.long_description)
+            .input('start_date', sql.Date, cause.start_date)
+            .input('end_date', sql.Date, cause.end_date)
+            .input('latitude', sql.Float, cause.latitude)
+            .input('longitude', sql.Float, cause.longitude)
+            .input('duration_id', sql.Int, cause.duration_id)
+            .input('isUrgent', sql.Bit, cause.isUrgent)
+            .input('image', sql.Image, cause.image)
+            .input('creator_id', sql.Int, cause.creator_id)
+            .input('city_id', sql.Int, cause.city_id)
+            .input('category_id', sql.Int, cause.category_id)
+            .execute("InsertCause");
+        return insertCause.recordsets;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 //Add messages to db
 async function addMessage(message) { //TODO: create table in charity-champs.sql
     try {
@@ -133,7 +157,7 @@ async function addMessage(message) { //TODO: create table in charity-champs.sql
             .input('text', sql.VarChar, message.text)
             .input('time', sql.VarChar, message.time) //TODO: not varCHar
             .input('room', sql.VarChar, message.room)
-            .execute("InsertMessages"); 
+            .execute("InsertMessages");
         return insertMessage.recordsets; //?? recordsets
     } catch (error) {
         console.log(error);
@@ -144,7 +168,7 @@ async function addMessage(message) { //TODO: create table in charity-champs.sql
 async function getMessages(room) {
     try {
         let pool = await sql.connect(config);
-        let messages = await pool.request().input('room', sql.VarChar, room).query("SELECT * FROM [MESSAGES] WHERE room = @room ORDER BY message_id " ); //TODO room won't be sql.Int
+        let messages = await pool.request().input('room', sql.VarChar, room).query("SELECT * FROM [MESSAGES] WHERE room = @room ORDER BY message_id "); //TODO room won't be sql.Int
         return messages.recordset;
     } catch (error) {
         console.log(error);
@@ -163,6 +187,7 @@ module.exports = {
     getCategory: getCategory,
     getDuration: getDuration,
     addUser: addUser,
-    addMessage:addMessage,
-    getMessages:getMessages
+    addMessage: addMessage,
+    getMessages: getMessages,
+    addCause: addCause
 }

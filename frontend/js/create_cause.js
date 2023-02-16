@@ -18,8 +18,43 @@ map.on('click', (e) => {
     if (marker) marker.remove()
     marker = new mapboxgl.Marker()
         .setLngLat([e.lngLat.lng, e.lngLat.lat]).addTo(map)
-
 });
 
 //marker.getLngLat() връща обект с координатите
 
+function create_cause() {
+    fetch("/addCause", {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            //да вземаме ID от базата
+            'name': document.getElementById("cause_name").value,
+            'short_description': document.getElementById("short-description").value,
+            'long_description': document.getElementById("long-description").value,
+            'start_date': document.getElementById("cause_date_from").value,
+            "end_date": document.getElementById("cause_date_to").value,
+            "latitude": marker.getLngLat().lat,
+            "longitude": marker.getLngLat().lng,
+            "duration_id": /*duration_id[document.getElementById("cause_duration").value]*/ 1,
+            "isUrgent": document.getElementById("cause_isUrgent").checked ? 1 : 0,
+            "image": document.getElementById("upload-picture").value,
+            "creator_id": sessionStorage.id,
+            "city_id": /*cities_id[document.getElementById("cause_city").value]*/ 1,
+            "category_id": /*categories_id[document.getElementById("cause_category").value]*/ 1
+        })
+    })
+        .then(response => {
+            if (response.ok) {
+                // /GET cause ID page
+                window.location.replace('charity.html');
+            } else {
+                throw new Error("Could not create cause.")
+            }
+        })
+        .catch((error) => console.log(error))
+}
+
+document.getElementsByClassName("publish-btn")[0].addEventListener("click", () => create_cause())

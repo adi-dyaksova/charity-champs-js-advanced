@@ -32,7 +32,7 @@ app.use('/api', router);
 app.set('views', './frontend');
 app.set('view engine', 'ejs');
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   res.render('index');
 });
 
@@ -49,14 +49,14 @@ io.on("connection", (socket) => {
     const user = userJoin(socket.id, username, room);
     socket.join(user.room);
 
-    
-    dboperations.getMessages(room).then(res =>{
+
+    dboperations.getMessages(room).then(res => {
       //Display old messages from room
       res.forEach(message => socket.emit("message", formatMessage.formatOldMessage(message)));
       // Welcome current user
       socket.emit("message", formatMessage.formatNewMessage(botName, "Welcome to Charity Champs Chat!"));
     });
- 
+
 
     // Broadcast when a user connects
     socket.broadcast
@@ -66,10 +66,10 @@ io.on("connection", (socket) => {
         formatMessage.formatNewMessage(botName, `${user.username} has joined the chat`)
       );
 
-      //Add message to database
-      const msgObj = formatMessage.formatNewMessage(botName, `${user.username} has joined the chat`) //time can be different
-      msgObj.room=user.room;
-      dboperations.addMessage(msgObj).then(t=> console.log(t));
+    //Add message to database
+    const msgObj = formatMessage.formatNewMessage(botName, `${user.username} has joined the chat`) //time can be different
+    msgObj.room = user.room;
+    dboperations.addMessage(msgObj).then(t => console.log(t));
 
     // Send users and room info
     io.to(user.room).emit("roomUsers", {
@@ -87,8 +87,8 @@ io.on("connection", (socket) => {
 
     //Add message to database
     const msgObj = formatMessage.formatNewMessage(user.username, msg); //time can be different
-    msgObj.room=user.room;
-    dboperations.addMessage(msgObj).then(t=> console.log(t));
+    msgObj.room = user.room;
+    dboperations.addMessage(msgObj).then(t => console.log(t));
 
   });
 
@@ -104,8 +104,8 @@ io.on("connection", (socket) => {
 
       //Add message to database
       const msgObj = formatMessage.formatNewMessage(botName, `${user.username} has left the chat`) //time can be different
-      msgObj.room=user.room;
-      dboperations.addMessage(msgObj).then(t=> console.log(t));
+      msgObj.room = user.room;
+      dboperations.addMessage(msgObj).then(t => console.log(t));
 
       // Send users and room info
       io.to(user.room).emit("roomUsers", {
@@ -117,14 +117,19 @@ io.on("connection", (socket) => {
 });
 
 
-app.get('/users',(req, res) => {
+app.get('/users', (req, res) => {
   dbOperations.getUsers().then(result => res.json(result));
 })
 
-app.post('/addUser',(req, res) => {
-  let user = {... req.body};
+app.post('/addUser', (req, res) => {
+  let user = { ...req.body };
   dbOperations.addUser(user).then(result => res.status(201).json(result));
 
+})
+
+app.post('/addCause', (req, res) => {
+  let cause = { ...req.body };
+  dbOperations.addCause(cause).then(result => res.status(201).json(result))
 })
 
 
