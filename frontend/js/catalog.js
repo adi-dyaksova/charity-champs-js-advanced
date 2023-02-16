@@ -1,26 +1,90 @@
 
-const expand_buttons = document.querySelectorAll(".expand-button");
-expand_buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
+function getCauses() {
+    fetch("/getCauses", {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+        .then(response => {
 
-        const description_element = btn.parentElement.nextElementSibling;
-        let isExpanded = !description_element.classList.contains("hidden");
-        hide_all_descriptions()
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("Could not load causes.")
+            }
+        })
+        .then(data => {
+            displayCauses(data);
+        })
+        .catch((error) => console.log(error))
+}
 
 
-        if (isExpanded) {
-            description_element.classList.add("hidden");
-            btn.classList.remove("expanded");
-            btn.parentElement.classList.remove("expanded-charity");
-            btn.innerHTML = `<i class="fa">&#xf105;</i>`;
-        } else {
-            description_element.classList.remove("hidden");
-            btn.classList.add("expanded");
-            btn.parentElement.classList.add("expanded-charity");
-            btn.innerHTML = `<i class="fa">&#xf107;</i>`;
-        }
+function displayCauses(data){
+
+    let wrapper = document.getElementsByClassName('charity-wrapper')[0];
+    wrapper.innerHTML='';
+
+    data.forEach(cause =>{
+        let name = cause["name"];
+
+        let causeWrapper = document.createElement('div');
+        causeWrapper.classList.add('charity-content'); 
+
+        let heading = document.createElement('div');
+        heading.classList.add('charity-heading')
+   
+        let span = document.createElement('span'); //TODO onclick charity.html with the id of the cause
+        span.innerText=name;
+        heading.appendChild(span)
+
+        let btn = `<button class="expand-button"><i class="fa">&#xf105;</i></button>`;
+        heading.insertAdjacentHTML('beforeend', btn);
+
+        let desc= document.createElement('div');
+        desc.classList.add('charity-description');
+        desc.classList.add('hidden');
+
+        let shortDesc=cause["short_description"]
+        let p = document.createElement('p');
+        p.innerText=shortDesc;
+        desc.appendChild(p);
+     
+        causeWrapper.appendChild(heading);
+        causeWrapper.appendChild(desc);
+        wrapper.appendChild(causeWrapper);
+
+       
+    })
+ addListenerExapandBtn();
+}
+
+function addListenerExapandBtn(){
+    const expand_buttons = document.querySelectorAll(".expand-button");
+    expand_buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const description_element = btn.parentElement.nextElementSibling;
+            let isExpanded = !description_element.classList.contains("hidden");
+            hide_all_descriptions()
+    
+            if (isExpanded) {
+                description_element.classList.add("hidden");
+                btn.classList.remove("expanded");
+                btn.parentElement.classList.remove("expanded-charity");
+                btn.innerHTML = `<i class="fa">&#xf105;</i>`;
+            } else {
+                description_element.classList.remove("hidden");
+                btn.classList.add("expanded");
+                btn.parentElement.classList.add("expanded-charity");
+                btn.innerHTML = `<i class="fa">&#xf107;</i>`;
+            }
+        });
     });
-});
+}
+    
+
+
 
 
 const category_buttons = document.querySelectorAll(".category-button");

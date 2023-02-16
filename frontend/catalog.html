@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body onload="getFilters(); getCauses(); ">
 <header onclick="location.href='home.html'">
   <div class="title-logo-wrapper" onclick="location.href='home.html'">
     <div class="title">Charity</div>
@@ -67,42 +67,7 @@
                 <button class="expand-category-button"><i class="fa">&#xf105;</i></button>
                 </div>
                 <div class="options-wrapper no-display">
-                <label class="option-container">Бедствия/кризи
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Бежанци/eмигранти
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Деца
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Домове
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Възрастни
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Животни
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Образование
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Здраве
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Култура/изкуство
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
+                
             </div>
             </div>
 
@@ -112,26 +77,7 @@
                     <button class="expand-category-button"><i class="fa">&#xf105;</i></button>
                     </div>
                 <div class="options-wrapper no-display">
-                <label class="option-container">До 5 минути
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">До час
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">До ден
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">До няколко дни
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Дългосрочно
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
+                
             </div>
             </div>
 
@@ -141,69 +87,26 @@
                     <button class="expand-category-button"><i class="fa">&#xf105;</i></button>
                     </div>
                 <div class="options-wrapper no-display">
-                    <div class="switch-wrapper-location">
-                        <label class="switch-location">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                        Близо до мен
-                    </div>
-                   
-                <label class="option-container">Перник
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">София
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Варна
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Пазарджик
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Смолян
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Кюстендил
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Бургас
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Видин
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Ловеч
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Плевен
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="option-container">Ямбол
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
+ 
             </div>
+            <div class="switch-wrapper-location">
+                <label class="switch-location">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                Близо до мен
+        </div>
             </div>
-            <!-- TODO: още градове и други филтри -->
-            <button class="save-filters-btn" >Запази филтри</button>
+            
+            <button class="save-filters-btn" onclick="displayFilteredInCatalog()" >Запази филтри</button>
+            <!-- <button class="save-filters-btn" onclick="displayFilteredInCatalog()" >Запази филтри</button> -->
         </div>
     </section>
 
     <section class="charities-wrapper">
         <div class="charities-catalog">
             <div class="charity-wrapper">
-                <div class="charity-content">
+                <!-- <div class="charity-content">
                     <div class="charity-heading" >
                             <span onclick="location.href='charity.html'">Бъди доброволец на Open Buzludzha Fest ‘22</span>
                         <button class="expand-button"><i class="fa">&#xf105;</i></button>
@@ -217,94 +120,8 @@
                             посетители.
                         </p>
                     </div>
-                </div>
-                <div class="charity-content">
-                    <div class="charity-heading">
-                        <span>Помагай с ремонтa в новата сграда на младежкия център T.R.A.P. в София</span>
-                        <button class="expand-button"><i class="fa">&#xf105;</i></button>
-                    </div>
-                    <div class="charity-description hidden">
-                        <p>
-                            Репетиционна, звукозаписно студио, библиотека и зала за танци за всички тийнейджъри,
-                            които искат да развиват талантите
-                            си и да гонят мечтите си. Ако и на теб ти звучи супер яко, удари едно рамо в
-                            ремонтните дейности.
-                        </p>
-                    </div>
-                </div>
-                <div class="charity-content">
-                    <div class="charity-heading">
-                        <span>Бъди доброволец на “Литературни срещи” в София</span>
-                        <button class="expand-button"><i class="fa">&#xf105;</i></button>
-                    </div>
-                    <div class="charity-description hidden">
-                        <p>
-                            Влез зад кулисите на фестивала и помогни срещите между писателите и техните читатели
-                            да се случат по най-прекрасния
-                            начин.
-                        </p>
-                        <p>
-                            „Литературни срещи“ е новата поредица от събития на фондация „Прочети София“, която
-                            ще следва концепцията от своето име:
-                            да кани различни интересни гости от света на литературата и да ги среща с публиката
-                            в най-различни формати.
-                        </p>
-                        <p>
-                            Първото ѝ издание кани на гости носителката на Нобелова награда за литература за
-                            2018 - Олга Токарчук. Както можеш да си
-                            представиш, това е много важно събитие, но не е единствено – фестивалът ще се
-                            проведе на 10 и 11 юни в РЦСИ
-                            „Топлоцентрала“ и освен тази значима среща, в програмата се нареждат още куп
-                            вълнуващи четения, изложби, бързи срещи с
-                            творци и учени, поетически видео триптих и интерактивни инсталации.
-                        </p>
-                    </div>
-                </div>
-                <div class="charity-content">
-                    <div class="charity-heading">
-                        <span>Подкрепи с материали арт занималня за деца в село Бяга</span>
-                        <button class="expand-button"><i class="fa">&#xf105;</i></button>
-                    </div>
-                    <div class="charity-description hidden">
-                        <p>
-                            Читалището в пазарджишкото село готви летни арт занимания за най-малко 20 деца, но
-                            се сблъсква с един проблем:
-                            родителите на голяма част от тях не могат да си позволят да закупят материали. Уви,
-                            читалището също. На ход си ти -
-                            подари им бои, четки, скицници.
-                        </p>
-                    </div>
-                </div>
-                <div class="charity-content">
-                    <div class="charity-heading">
-                        <span>Бъди доброволец на летен скаутски лагер Узана 2022</span>
-                        <button class="expand-button"><i class="fa">&#xf105;</i></button>
-                    </div>
-                    <div class="charity-description hidden">
-                        <p>
-                            В случай че кажеш “Хайде!”, можеш да очакваш строежи от дърво и сезал, приключенски
-                            походи и песни до лагерни огньове.
-                            Да кодираш съобщения на морз и да се криеш в гората под мъх и шума. Да виждаш как
-                            млади хора да израстват пред очите ти
-                            почти като на игра. И най-вече – да бъдеш част от най-сплотената дружина, стъпвала
-                            по родните ни китни краища.
-                        </p>
-                    </div>
-                </div>
-                <div class="charity-content">
-                    <div class="charity-heading">
-                        <span>Създай оригами жерави в подкрепа на хората с множествена склероза</span>
-                        <button class="expand-button"><i class="fa">&#xf105;</i></button>
-                    </div>
-                    <div class="charity-description hidden">
-                        <p>
-                            Легендата гласи, че който сгъне 1000 хартиени жерава, получава шанс желанието на
-                            сърцето му да се сбъдне. Създай
-                            хартиено ято и можеш да дадеш крила на хора, които имат една голяма мечта: да живеят
-                            възможно най-пълноценно.
-                        </p>
-                    </div>
-                </div>
+                </div> -->
+              
             </div>
 
             <footer class="pages">
@@ -324,6 +141,8 @@
 </main>
 <script src="./js/catalog.js"></script>
 <script src="./js/index.js"></script>
+
+
 </body>
 
 </html>

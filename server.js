@@ -126,12 +126,32 @@ app.post('/addUser', (req, res) => {
   dbOperations.addUser(user).then(result => res.status(201).json(result));
 
 })
+app.get('/getFilters',async (req, res) => {
+  const data ={
+    durations:await dbOperations.getDurations(),
+    categories : await dbOperations.getCategories(),
+    cities : await dbOperations.getCities()
+  }
+  res.status(200).json(data);
+})
+
+app.get('/getCauses',async (req, res) => {
+  const causes = await dboperations.getCauses();
+  res.status(200).json(causes);
+})
 
 app.post('/addCause', (req, res) => {
   let cause = { ...req.body };
   dbOperations.addCause(cause).then(result => res.status(201).json(result))
 })
 
+app.post('/getFilteredCauses',async (req, res) => {
+  let filters = {... req.body};
+
+ const test = await dbOperations.getFilteredCauses(filters);
+ res.status(200).json(test);
+
+})
 
 server.listen(port, () => {
   console.log(`Server is running at ${host}:${port}`)
