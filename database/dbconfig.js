@@ -1,7 +1,7 @@
 const config = {
     user: "guest",
     password: "1234",
-    server: 'DESKTOP-41ND4CB',
+    server: 'MIPH',
     port: 1433,
     database: 'Charity-champs',
     options: {

@@ -25,39 +25,44 @@ async function getCauses() {
 }
 
 async function getFilteredCauses(filters) {
-    const durations= filters["durations"];
-    const categories= filters["categories"];
-    const cities= filters["cities"];
-    const durationsStr = durations.map(function (a) { 
-        return "'" + a.replace("'", "''") + "'"; 
-    }).join(",");
+    const durations = filters["durations"];
+    const categories = filters["categories"];
+    const cities = filters["cities"];
+    const isUrgent = filters["isUrgent"];
     
-    const citiesStr = cities.map(function (a) { 
-        return "'" + a.replace("'", "''") + "'"; 
+    const durationsStr = durations.map(function (a) {
+        return "'" + a.replace("'", "''") + "'";
     }).join(",");
-    
-    const categoriesStr = categories.map(function (a) { 
-        return "'" + a.replace("'", "''") + "'"; 
+
+    const citiesStr = cities.map(function (a) {
+        return "'" + a.replace("'", "''") + "'";
     }).join(",");
-    
+
+    const categoriesStr = categories.map(function (a) {
+        return "'" + a.replace("'", "''") + "'";
+    }).join(",");
+
     let whereClause = "";
     if (durationsStr) {
-      whereClause += ` (duration_id IN (SELECT duration_id FROM Duration WHERE type IN (${durationsStr} )) OR duration_id IS NULL) AND`;
+        whereClause += ` (duration_id IN (SELECT duration_id FROM Duration WHERE type IN (${durationsStr} )) OR duration_id IS NULL) AND`;
     }
     if (categoriesStr) {
-      whereClause += ` (category_id IN (SELECT category_id FROM Category WHERE name IN (${categoriesStr})) OR category_id IS NULL) AND`;
+        whereClause += ` (category_id IN (SELECT category_id FROM Category WHERE name IN (${categoriesStr})) OR category_id IS NULL) AND`;
     }
     if (citiesStr) {
-      whereClause += ` (city_id IN (SELECT city_id FROM City WHERE name IN( ${citiesStr})) OR city_id IS NULL) AND`;
+        whereClause += ` (city_id IN (SELECT city_id FROM City WHERE name IN( ${citiesStr})) OR city_id IS NULL) AND`;
+    }
+    if (isUrgent) {
+        whereClause += ` isUrgent = 1 AND`;
     }
     if (whereClause) {
-      whereClause = "WHERE " + whereClause.slice(0, -4); // Remove the last "AND"
+        whereClause = "WHERE " + whereClause.slice(0, -4); // Remove the last "AND"
     }
     const query = `SELECT * FROM Cause ${whereClause}`;
     let pool = await sql.connect(config);
     const causes = await pool.request().query(query);
     return causes.recordset;
-  }
+}
 
 
 async function getCities() {
@@ -205,7 +210,7 @@ async function addMessage(message) { //TODO: create table in charity-champs.sql
 async function getMessages(room) {
     try {
         let pool = await sql.connect(config);
-        let messages = await pool.request().input('room', sql.VarChar, room).query("SELECT * FROM [MESSAGES] WHERE room = @room ORDER BY message_id " ); 
+        let messages = await pool.request().input('room', sql.VarChar, room).query("SELECT * FROM [MESSAGES] WHERE room = @room ORDER BY message_id ");
         return messages.recordset;
     } catch (error) {
         console.log(error);
@@ -215,7 +220,7 @@ async function getMessages(room) {
 module.exports = {
     getUsers: getUsers,
     getCauses: getCauses,
-    getFilteredCauses:getFilteredCauses,
+    getFilteredCauses: getFilteredCauses,
     getCities: getCities,
     getCategories: getCategories,
     getDurations: getDurations,

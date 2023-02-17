@@ -21,22 +21,63 @@ function flyToMe(_zoom) {
 
 flyToMe(12)
 
-const test = new CharityMarker(1, 23.320039, 42.696156, "Подкрепи бежанци с хранителни продукти", false, "Refugees")
-const test2 = new CharityMarker(1, 23.320039, 42.676156, "Разходи кучетата от общинския приют в Перник", true, "Animals")
 
-const test_db = [test, test2]
-test_db.forEach(charity => {
-    const marker = new mapboxgl.Marker({ color: charity.isUrgent ? "red" : "lightblue" })
-        .setLngLat([charity.longitude, charity.latitude])
-        .setPopup(new mapboxgl.Popup({
-            className: "popup-window",
-            maxWidth: "none",
-        }
-        ).setHTML(charity.constructPopup()))
-        .addTo(map)
 
-    currentMarkers.push(marker)
-})
+function removeAllMarkers() {
+    currentMarkers.forEach(marker => marker.remove())
+}
+
+function displayMarkers(causes) {
+    causes.forEach(cause => {
+        const marker = new mapboxgl.Marker({ color: cause["isUrgent"] ? "red" : "lightblue" })
+            .setLngLat([cause["longitude"], cause["latitude"]])
+            .setPopup(new mapboxgl.Popup({
+                className: "popup-window",
+                maxWidth: "none",
+            }
+            ).setHTML(`<div class="popup">
+                         <h1>${cause["name"]}</h1>
+                        <a href="charity.html">Виж повече!</a>
+                       </div>`))
+            .addTo(map)
+
+        currentMarkers.push(marker)
+    })
+}
+
+//TODO: fix repetitive code
+function getCauses() {
+    fetch("/getCauses", {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+        .then(response => {
+
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("Could not load causes.")
+            }
+        })
+        .then(data => {
+            //displayCauses(data);
+            displayMarkers(data);
+        })
+        .catch((error) => console.log(error))
+}
+
+async function displayFilteredMarkers() {
+    const filteredCauses = await getFilteredCauses();
+    console.log(filteredCauses);
+    removeAllMarkers();
+    displayMarkers(filteredCauses);
+}
+
+document.getElementById("save-filters").addEventListener("click", () => displayFilteredMarkers())
+
+getCauses()
 
 //marker.remove() премахва маркера от картата
 

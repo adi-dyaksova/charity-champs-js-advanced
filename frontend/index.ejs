@@ -13,10 +13,10 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/596f1933be.js" crossorigin="anonymous"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
-    <script src="./js/index.js"></script>
+    
 </head>
 
-<body>
+<body onload="getFilters();">
     <!-- <header>
         <div class="title-logo-wrapper" onclick="location.href='index.html'">
             <div class="title">Charity</div>
@@ -56,7 +56,7 @@
                 <div id="filters" class="filters-list">
                     <div class="switch-wrapper">
                         <label class="switch">
-                            <input type="checkbox">
+                            <input id="isUrgent-btn" type="checkbox">
                             <span class="slider round"></span>
                         </label>
                         Спешни каузи
@@ -196,7 +196,7 @@
                         </div>
                     </div>
                     <!-- TODO: още градове и други филтри -->
-                    <button class="save-filters-btn">Запази филтри</button>
+                    <button class="save-filters-btn" id="save-filters" >Запази филтри</button>
                 </div>
             </section>
 
@@ -215,5 +215,6 @@
     </main>
 
     <script type="module" src="./js/map.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 </html>
