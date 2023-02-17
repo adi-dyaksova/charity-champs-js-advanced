@@ -143,7 +143,6 @@ app.get('/getCauses', async (req, res) => {
 app.post('/addCause', (req, res) => {
   let cause = { ...req.body };
   dbOperations.addCause(cause).then(result => {
-    notificate()
     res.status(201).json(result)
   })
 
