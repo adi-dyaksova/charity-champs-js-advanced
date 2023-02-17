@@ -23,6 +23,8 @@ map.on('click', (e) => {
 //marker.getLngLat() връща обект с координатите
 
 function create_cause() {
+    const name = document.getElementById("cause_name").value
+
     fetch("/addCause", {
         method: 'POST',
         mode: 'cors',
@@ -50,6 +52,9 @@ function create_cause() {
             if (response.ok) {
                 // /GET cause ID page
                 window.location.replace('charity.html');
+
+
+                notificate(name)
             } else {
                 throw new Error("Could not create cause.")
             }
