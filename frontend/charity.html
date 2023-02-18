@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body onload="loadCauseInfo()">
     <header onclick="location.href='home.html'">
         <div class="title-logo-wrapper" onclick="location.href='home.html'">
             <div class="title">Charity</div>
@@ -74,11 +74,11 @@
                     <img class="charity-image" src="images/charity_img.jpg">
                     <div class="join-wrapper">
                         <div class="date">
-                            <span>Начало: <strong> 19/02/2022</strong></span>
-                            <span>Край: <strong> 08/04/2022</strong></span>
+                            <span>Начало: <strong id="start"> 19/02/2022</strong></span>
+                            <span>Край: <strong id="end"> 08/04/2022</strong></span>
                         </div>
 
-                        <button class="join-btn">Включи се!</button>
+                        <button onclick="joinCause()" class="join-btn">Включи се!</button>
                     </div>
                 </div>
             </div>
@@ -86,6 +86,7 @@
 
     </main>
     <script src="./js/notifications.js"></script>
+    <script src="./js/charity.js"></script>
 </body>
 
 </html>

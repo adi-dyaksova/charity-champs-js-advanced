@@ -26,15 +26,20 @@ function displayCauses(data) {
     wrapper.innerHTML = '';
 
     data.forEach(cause => {
+        
+        
         let name = cause["name"];
 
         let causeWrapper = document.createElement('div');
         causeWrapper.classList.add('charity-content');
 
         let heading = document.createElement('div');
-        heading.classList.add('charity-heading')
+        heading.classList.add('charity-heading') //TODO onclick charity.html with the id of the cause
+        heading.setAttribute('cause_id',cause['cause_id'])
+        
+        
 
-        let span = document.createElement('span'); //TODO onclick charity.html with the id of the cause
+        let span = document.createElement('span'); 
         span.innerText = name;
         heading.appendChild(span)
 
@@ -54,9 +59,23 @@ function displayCauses(data) {
         causeWrapper.appendChild(desc);
         wrapper.appendChild(causeWrapper);
 
-
+        
     })
     addListenerExapandBtn();
+    addListenerHeading(data);
+}
+
+
+function addListenerHeading(allCauses){
+const headings = document.querySelectorAll(".charity-heading").forEach(heading => {
+    heading.addEventListener('click', () =>{
+        const cause = allCauses.find(cause => cause.cause_id == heading.getAttribute('cause_id'));
+        const queryString = "?cause=" + encodeURIComponent(JSON.stringify(cause));
+        window.location.href = "charity.html" + queryString;
+    })
+});
+
+
 }
 
 function addListenerExapandBtn() {

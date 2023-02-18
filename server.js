@@ -21,14 +21,14 @@ const io = socketio(server);
 var bodyParser = require('body-parser');
 var cors = require('cors');
 const dboperations = require("./database/dboperations");
-var router = express.Router();
+// var router = express.Router();
 const host = "localhost";
 const port = 8080;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
-app.use('/api', router);
+// app.use('/api', router);
 app.set('views', './frontend');
 app.set('view engine', 'ejs');
 
@@ -44,7 +44,6 @@ const botName = "CharityChamps Bot";
 
 // Run when client connects
 io.on("connection", (socket) => {
-  // console.log(io.of("/").adapter);
   socket.on("joinRoom", ({ username, room }) => {
     const user = userJoin(socket.id, username, room);
     socket.join(user.room);
@@ -67,7 +66,7 @@ io.on("connection", (socket) => {
       );
 
     //Add message to database
-    const msgObj = formatMessage.formatNewMessage(botName, `${user.username} has joined the chat`) //time can be different
+    const msgObj = formatMessage.formatNewMessage(botName, `${user.username} has joined the chat`) 
     msgObj.room = user.room;
     dboperations.addMessage(msgObj).then(t => console.log(t));
 
@@ -86,7 +85,7 @@ io.on("connection", (socket) => {
     io.to(user.room).emit("message", formatMessage.formatNewMessage(user.username, msg));
 
     //Add message to database
-    const msgObj = formatMessage.formatNewMessage(user.username, msg); //time can be different
+    const msgObj = formatMessage.formatNewMessage(user.username, msg); 
     msgObj.room = user.room;
     dboperations.addMessage(msgObj).then(t => console.log(t));
 
@@ -156,6 +155,17 @@ app.post('/getFilteredCauses', async (req, res) => {
   res.status(200).json(test);
 
 })
+
+
+app.post('/addUserCause', (req, res) => {
+  let user_cause = { ...req.body };
+  dbOperations.addUserCause(user_cause).then(result => {
+    res.status(201).json(result)
+  })
+
+
+})
+
 
 server.listen(port, () => {
   console.log(`Server is running at ${host}:${port}`)
