@@ -190,6 +190,20 @@ async function addCause(cause) {
     }
 }
 
+
+async function addUserCause(user_cause) {
+    try {
+        let pool = await sql.connect(config);
+        let insertUserCause = await pool.request()
+            .input('user_id', sql.Int, user_cause.user_id)
+            .input('cause_id', sql.Int, user_cause.cause_id)
+            .execute("InsertUserCause");
+        return insertUserCause.recordsets;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 //Add messages to db
 async function addMessage(message) { //TODO: create table in charity-champs.sql
     try {
@@ -232,5 +246,6 @@ module.exports = {
     addUser: addUser,
     addMessage: addMessage,
     getMessages: getMessages,
-    addCause: addCause
+    addCause: addCause,
+    addUserCause:addUserCause
 }
