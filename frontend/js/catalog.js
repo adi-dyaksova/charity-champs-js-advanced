@@ -14,8 +14,7 @@ function getCauses() {
             }
         })
         .then(data => {
-            displayCauses(data);
-            displayMarkers(data);
+            displayCauses(data);    
         })
         .catch((error) => console.log(error))
 }
@@ -119,6 +118,11 @@ function hide_all_descriptions() {
         exp_btn.innerHTML = `<i class="fa">&#xf105;</i>`;
     });
 }
+
+navigator.geolocation.getCurrentPosition((pos)=>{
+    localStorage.setItem("latitude", pos.coords.latitude)
+    localStorage.setItem("latitude", pos.coords.longitude)
+})
 
 
 

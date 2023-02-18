@@ -48,7 +48,7 @@
                     <img class="profile-pic" src="images/profile_picture.jpg">
                 </a>
                 <button class="create-btn" type="button" onclick="location.href='chat-login.html'">Чат
-                    </button>
+                </button>
             </div>
         </nav>
 
@@ -199,6 +199,13 @@
                                 <span class="checkmark"></span>
                             </label>
                         </div>
+                        <div class="switch-wrapper-location">
+                            <label class="switch-location">
+                              <input id="closest-btn" type="checkbox">
+                              <span class="slider round"></span>
+                            </label>
+                            Близо до мен
+                          </div>
                     </div>
                     <!-- TODO: още градове и други филтри -->
                     <button class="save-filters-btn" id="save-filters">Запази филтри</button>
@@ -220,7 +227,7 @@
 
     </main>
     <script type="module" src="./js/map.js"></script>
-    <script src="./js/notifications.js"></script>
+    <script type="module" src="./js/notifications.js"></script>
 </body>
 
 </html>
