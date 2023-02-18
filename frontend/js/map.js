@@ -37,7 +37,7 @@ function displayMarkers(causes) {
             }
             ).setHTML(`<div class="popup">
                          <h1>${cause["name"]}</h1>
-                        <a href="charity.html">Виж повече!</a>
+                        <a href="charity.html?cause=${encodeURIComponent(JSON.stringify(cause))}">Виж повече!</a>
                        </div>`))
             .addTo(map)
 
