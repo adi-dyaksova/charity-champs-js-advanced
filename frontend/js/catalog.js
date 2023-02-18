@@ -121,7 +121,7 @@ function hide_all_descriptions() {
 
 navigator.geolocation.getCurrentPosition((pos)=>{
     localStorage.setItem("latitude", pos.coords.latitude)
-    localStorage.setItem("latitude", pos.coords.longitude)
+    localStorage.setItem("longitude", pos.coords.longitude)
 })
 
 

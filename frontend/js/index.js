@@ -96,9 +96,7 @@ async function getFilteredCauses() {
     const selectedCities = getSelectedValuesByClass(".city-option");
     const isUrgent = document.getElementById("isUrgent-btn").checked;
     const closest = document.getElementById("closest-btn").checked;
-    const lat = localStorage.getItem("latitude")
-    const lon = localStorage.getItem("longitude")
-
+    console.log(localStorage.getItem("latitude"))
     const fetchedData = await fetch("/getFilteredCauses", {
         method: 'POST',
         headers: {
@@ -110,13 +108,14 @@ async function getFilteredCauses() {
             'cities': selectedCities,
             'isUrgent': isUrgent,
             "closest": closest,
-            "latitude": lat,
-            "longitude": lon
+            "latitude": localStorage.getItem("latitude"),
+            "longitude": localStorage.getItem("longitude")
         })
     })
         .then(response => {
             if (response.ok) {
                 return response.json();
+
             } else {
                 throw new Error("Could not load filtered causes.")
             }
@@ -129,3 +128,7 @@ async function getFilteredCauses() {
     return fetchedData;
 }
 
+navigator.geolocation.getCurrentPosition((pos) => {
+    localStorage.setItem("latitude", pos.coords.latitude)
+    localStorage.setItem("longitude", pos.coords.longitude)
+})
