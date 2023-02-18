@@ -47,8 +47,6 @@ chatForm.addEventListener('submit', (e) => {
   // Emit message to server
   socket.emit('chatMessage', msg);
 
-
-
   // Clear input
   e.target.elements.msg.value = '';
   e.target.elements.msg.focus();
@@ -87,10 +85,9 @@ function outputUsers(users) {
 
 //Prompt the user before leave chat room
 document.getElementById('leave-btn').addEventListener('click', () => {
-  //Да има ли този alert
   const leaveRoom = confirm('Сигурен ли си, че искаш на напуснеш стаята?');
   if (leaveRoom) {
-    window.location = '../index.html';
+    window.location = '../home.html';
   } else {
   }
 });
