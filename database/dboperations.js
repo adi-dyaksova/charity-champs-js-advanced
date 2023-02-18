@@ -29,7 +29,10 @@ async function getFilteredCauses(filters) {
     const categories = filters["categories"];
     const cities = filters["cities"];
     const isUrgent = filters["isUrgent"];
-    
+    const closest = filters["closest"]
+    const longitude = filters["longitude"]
+    const latitude = filters["latitude"]
+
     const durationsStr = durations.map(function (a) {
         return "'" + a.replace("'", "''") + "'";
     }).join(",");
@@ -55,6 +58,12 @@ async function getFilteredCauses(filters) {
     if (isUrgent) {
         whereClause += ` isUrgent = 1 AND`;
     }
+    if (closest) {
+        //whereClause += ` acos(sin((${latitude} * PI())/180) * sin((latitude * PI()) / 180) + cos((${latitude} * PI())/180) * cos((latitude * PI()) / 180) * cos((longitude * PI()) / 180 - (${longitude} * PI())/180)) * 6371 < 5 AND`;
+        whereClause += ` acos(sin((42.6687437369151 * PI())/180) * sin((latitude * PI()) / 180) + cos((42.6687437369151 * PI())/180) * cos((latitude * PI()) / 180) * cos((longitude * PI()) / 180 - (23.2710526979007 * PI())/180)) * 6371 < 5 AND`;
+
+    }
+    
     if (whereClause) {
         whereClause = "WHERE " + whereClause.slice(0, -4); // Remove the last "AND"
     }
