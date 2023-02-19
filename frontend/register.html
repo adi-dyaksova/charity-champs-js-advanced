@@ -19,15 +19,21 @@
         </div>
         <h1 class="heading">Регистрация</h1>
         <div class="input-wrapper"> 
-            <input type="email" class="input-field" id="email" placeholder="Имейл адрес" />
-            <input class="input-field" id="username" placeholder="Потребителско име" />
-            <input class="input-field" id="firstName" placeholder="Име" />
-            <input class="input-field" id="lastName" placeholder="Фамилия" />
-            <input type="password" id="password" class="input-field" placeholder="Парола" />
-            <input type="password" id="repeatedPassword" class="input-field" placeholder="Повтори паролата" />
+            <input type="email" class="input-field" id="email" placeholder="Имейл адрес" minlength="5" maxlength="30" required oninvalid="this.setCustomValidity(' ')"/>
+            <section></section>
+            <input class="input-field" id="username" placeholder="Потребителско име" minlength="2" maxlength="20" required oninvalid="this.setCustomValidity(' ')" />
+            <section></section>
+            <input class="input-field" id="firstName" placeholder="Име" minlength="2" maxlength="50" required oninvalid="this.setCustomValidity(' ')" />
+            <section></section>
+            <input class="input-field" id="lastName" placeholder="Фамилия" minlength="2" maxlength="50" required oninvalid="this.setCustomValidity(' ')" />
+            <section></section>
+            <input type="password" id="password" class="input-field" placeholder="Парола" minlength="3" maxlength="25" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,10}$" required oninvalid="this.setCustomValidity(' ')"/>
+            <section></section>
+            <input type="password" id="repeatedPassword" class="input-field" placeholder="Повтори паролата" minlength="3" maxlength="25" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{3,25}$" required oninvalid="this.setCustomValidity(' ')" />
+            <section></section>
         </div>
         <div class="button-wrapper">
-            <button class="main-btn" onclick="register()">Присъедини се</button>
+            <button class="main-btn" onclick="submitForm(event)">Присъедини се</button>
             <div class="alternative-wrapper"> 
                 <span>Вече си се регистрирал?</span>
                 <button class="alternative-btn" type="button" onclick="location.href='login.html'">Вход</button>
