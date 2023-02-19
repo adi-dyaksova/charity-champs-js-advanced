@@ -74,7 +74,7 @@ function create_cause() {
         .then(response => {
             if (response.ok) {
                 // /GET cause ID page
-                window.location.replace('charity.html');
+                window.location.replace('catalog.html');
 
 
                 notificate(name)
