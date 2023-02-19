@@ -36,7 +36,6 @@ function create_cause() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            //да вземаме ID от базата
             'name': document.getElementById("cause_name").value,
             'short_description': document.getElementById("short-description").value,
             'long_description': document.getElementById("long-description").value,
@@ -44,12 +43,12 @@ function create_cause() {
             "end_date": document.getElementById("cause_date_to").value,
             "latitude": marker.getLngLat().lat,
             "longitude": marker.getLngLat().lng,
-            "duration_id": /*duration_id[document.getElementById("cause_duration").value]*/ 1,
+            "duration_id": document.getElementById("cause_duration").selectedIndex,
             "isUrgent": document.getElementById("cause_isUrgent").checked ? 1 : 0,
             "image": document.getElementById("upload-picture").value,
             "creator_id": sessionStorage.id,
-            "city_id": /*cities_id[document.getElementById("cause_city").value]*/ 1,
-            "category_id": /*categories_id[document.getElementById("cause_category").value]*/ 1
+            "city_id": document.getElementById("cause_city").selectedIndex,
+            "category_id": document.getElementById("cause_category").selectedIndex
         })
     })
         .then(response => {
@@ -64,6 +63,43 @@ function create_cause() {
             }
         })
         .catch((error) => console.log(error))
+}
+
+
+function getFilters() {
+    fetch("/getFilters", {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+
+            } else {
+                throw new Error("Could not load filters.")
+            }
+        })
+        .then(data => {
+            addOptions(data);
+        })
+        .catch((error) => console.log(error))
+}
+
+function addOptions(data) {
+    addOptionsByFilter(data["categories"], 1, "name");
+    addOptionsByFilter(data["durations"], 2, "type");
+    addOptionsByFilter(data["cities"], 0, "name");
+}
+
+function addOptionsByFilter(filterArr, wrapperInd, property) {
+    const filterWrapper = document.getElementsByClassName('selections')[wrapperInd];
+    filterArr.forEach(filterOption => {
+        const option = document.createElement("option")
+        option.innerHTML = filterOption[property];
+        filterWrapper.appendChild(option)
+    })
 }
 
 document.getElementsByClassName("publish-btn")[0].addEventListener("click", () => create_cause())

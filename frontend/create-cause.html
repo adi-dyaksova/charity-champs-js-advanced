@@ -14,7 +14,7 @@
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
 </head>
 
-<body>
+<body onload="getFilters()">
 
   <!-- Това ограденото в коментари са логото и лентата, ако някой ще прави някоя от страниците нека copy-paste цялото нещо най-отгоре
     и добави main.css файла за стиловете -->
@@ -30,7 +30,7 @@
       <div class="links-wrapper">
         <a class="link" href="home.html">Начало</a>
         <a class="link" href="catalog.html">Каузи</a>
-        <a class="link" href="champions.html">Шампиони</a>
+
       </div>
       <div class="search-root">
         <div class="search-wrapper">
@@ -46,6 +46,8 @@
         <a href="my-profile.html">
           <img class="profile-pic" src="./images/profile_picture.jpg">
         </a>
+        <button class="create-btn" type="button" onclick="location.href='chat-login.html'">Чат
+        </button>
       </div>
     </nav>
     <!-- Тук приключва лентата =====================================================================================================-->
@@ -55,31 +57,12 @@
         <input id="cause_name" class="inputs font-style" placeholder="Заглавие на каузата *" />
         <select id="cause_city" class="inputs selections font-style">
           <option>Населено място *</option>
-          <option>София</option>
-          <option>Пловдив</option>
-          <option>Варна</option>
-          <option>Бургас</option>
-          <option>Стара Загора</option>
         </select>
         <select id="cause_category" class="inputs selections font-style">
           <option>Категория *</option>
-          <option>Бедствия/кризи</option>
-          <option>Бежанци/емигранти</option>
-          <option>Деца</option>
-          <option>Домове</option>
-          <option>Възрастни</option>
-          <option>Животни</option>
-          <option>Образование</option>
-          <option>Здраве</option>
-          <option>Култура/изкуство</option>
         </select>
         <select id="cause_duration" class="inputs selections font-style">
           <option>Отнемащо време *</option>
-          <option>До 5 минути</option>
-          <option>До час</option>
-          <option>До ден</option>
-          <option>До няколко дни</option>
-          <option>Дългосрочно</option>
         </select>
         <textarea id="short-description" class="font-style"
           placeholder="Резюме на каузата (кратко описание) *"></textarea>
@@ -113,8 +96,10 @@
     </section>
   </main>
 
-  <script type="module" src="./js/create_cause.js"></script>
+  
   <script src="./js/notifications.js"></script>
+  <script src="./js/create_cause.js"></script>
+  
 </body>
 
 

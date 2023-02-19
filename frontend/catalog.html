@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,96 +16,98 @@
 </head>
 
 <body onload="getFilters(); getCauses(); ">
-<header onclick="location.href='home.html'">
-  <div class="title-logo-wrapper" onclick="location.href='home.html'">
-    <div class="title">Charity</div>
-    <img class="header-logo" src="./images/logo_notext.png">
-    <div class="title">Champs</div>
-  </div>
-</header>
-<main>
-  <nav class="navbar">
-    <div class="links-wrapper">
-      <a class="link" href="home.html">Начало</a>
-      <a class="link" href="catalog.html">Каузи</a>
-      <a class="link" href="champions.html">Шампиони</a>
+  <header onclick="location.href='home.html'">
+    <div class="title-logo-wrapper" onclick="location.href='home.html'">
+      <div class="title">Charity</div>
+      <img class="header-logo" src="./images/logo_notext.png">
+      <div class="title">Champs</div>
     </div>
-    <div class="search-root">
-      <div class="search-wrapper">
-        <input class="searchfield" />
-        <div class="search-overlay">
-          <i class="fas fa-search"></i>
-          <span>Търси</span>
+  </header>
+  <main>
+    <nav class="navbar">
+      <div class="links-wrapper">
+        <a class="link" href="home.html">Начало</a>
+        <a class="link" href="catalog.html">Каузи</a>
+
+      </div>
+      <div class="search-root">
+        <div class="search-wrapper">
+          <input class="searchfield" />
+          <div class="search-overlay">
+            <i class="fas fa-search"></i>
+            <span>Търси</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="actions-wrapper">
-      <button class="create-btn" type="button" onclick="location.href='create-cause.html'">Създай кауза</button>
-      <a href="my-profile.html">
-        <img class="profile-pic" src="./images/profile_picture.jpg">
-      </a>
-    </div>
-  </nav>
+      <div class="actions-wrapper">
+        <button class="create-btn" type="button" onclick="location.href='create-cause.html'">Създай кауза</button>
+        <a href="my-profile.html">
+          <img class="profile-pic" src="./images/profile_picture.jpg">
+        </a>
+        <button class="create-btn" type="button" onclick="location.href='chat-login.html'">Чат
+        </button>
+      </div>
+    </nav>
 
-  <section class="main-page">
-    <section class="categories-wrapper">
+    <section class="main-page">
+      <section class="categories-wrapper">
         <div class="filters-header">
-            <h2 class="filters-heading">Филтри</h2>
+          <h2 class="filters-heading">Филтри</h2>
         </div>
         <div id="filters" class="filters-list">
-            <div class="switch-wrapper">
-                <label class="switch">
-                    <input id="isUrgent-btn" type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-                Спешни каузи
+          <div class="switch-wrapper">
+            <label class="switch">
+              <input id="isUrgent-btn" type="checkbox">
+              <span class="slider round"></span>
+            </label>
+            Спешни каузи
+          </div>
+          <div class="filter-item">
+            <div class="filter-heading" onclick="changeVisibility(0)">
+              <h3 class="filter-name">Категория</h3>
+              <button class="expand-category-button"><i class="fa">&#xf105;</i></button>
             </div>
-            <div class="filter-item">
-                <div class="filter-heading" onclick="changeVisibility(0)">
-                <h3 class="filter-name" >Категория</h3>
-                <button class="expand-category-button"><i class="fa">&#xf105;</i></button>
-                </div>
-                <div class="options-wrapper no-display">
-                
-            </div>
-            </div>
+            <div class="options-wrapper no-display">
 
-            <div class="filter-item">
-                <div class="filter-heading" onclick="changeVisibility(1)">
-                    <h3 class="filter-name" >Времетраене</h3>
-                    <button class="expand-category-button"><i class="fa">&#xf105;</i></button>
-                    </div>
-                <div class="options-wrapper no-display">
-                
             </div>
-            </div>
+          </div>
 
-            <div class="filter-item">
-                <div class="filter-heading" onclick="changeVisibility(2)">
-                    <h3 class="filter-name" >Локация</h3>
-                    <button class="expand-category-button"><i class="fa">&#xf105;</i></button>
-                    </div>
-                <div class="options-wrapper no-display">
- 
+          <div class="filter-item">
+            <div class="filter-heading" onclick="changeVisibility(1)">
+              <h3 class="filter-name">Времетраене</h3>
+              <button class="expand-category-button"><i class="fa">&#xf105;</i></button>
+            </div>
+            <div class="options-wrapper no-display">
+
+            </div>
+          </div>
+
+          <div class="filter-item">
+            <div class="filter-heading" onclick="changeVisibility(2)">
+              <h3 class="filter-name">Локация</h3>
+              <button class="expand-category-button"><i class="fa">&#xf105;</i></button>
+            </div>
+            <div class="options-wrapper no-display">
+
             </div>
             <div class="switch-wrapper-location">
-                <label class="switch-location">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-                Близо до мен
-        </div>
+              <label class="switch-location">
+                <input id="closest-btn" type="checkbox">
+                <span class="slider round"></span>
+              </label>
+              Близо до мен
             </div>
-            
-            <button class="save-filters-btn" onclick="displayFilteredInCatalog()" >Запази филтри</button>
-            <!-- <button class="save-filters-btn" onclick="displayFilteredInCatalog()" >Запази филтри</button> -->
-        </div>
-    </section>
+          </div>
 
-    <section class="charities-wrapper">
+          <button class="save-filters-btn" onclick="displayFilteredInCatalog()">Запази филтри</button>
+
+        </div>
+      </section>
+
+      <section class="charities-wrapper">
         <div class="charities-catalog">
-            <div class="charity-wrapper">
-                <!-- <div class="charity-content">
+          <div class="charity-wrapper">
+            <!-- <div class="charity-content">
                     <div class="charity-heading" >
                             <span onclick="location.href='charity.html'">Бъди доброволец на Open Buzludzha Fest ‘22</span>
                         <button class="expand-button"><i class="fa">&#xf105;</i></button>
@@ -121,26 +122,26 @@
                         </p>
                     </div>
                 </div> -->
-              
-            </div>
 
-            <footer class="pages">
-                <a href="" class="page-button">Previous</a>
-                <a href="" class="page-button">1</a>
-                <a href="" class="page-button">2</a>
-                <a href="" class="page-button">3</a>
-                <a href="" class="page-button">Next</a>
-            </footer>
+          </div>
+
+          <!-- <footer class="pages">
+            <a href="" class="page-button">Previous</a>
+            <a href="" class="page-button">1</a>
+            <a href="" class="page-button">2</a>
+            <a href="" class="page-button">3</a>
+            <a href="" class="page-button">Next</a>
+          </footer> -->
 
         </div>
+      </section>
+
+
     </section>
 
-
-  </section>
-
-</main>
-<script src="./js/catalog.js"></script>
-<script src="./js/index.js"></script>
+  </main>
+  <script src="./js/catalog.js"></script>
+  <script src="./js/index.js"></script>
 
 
 </body>

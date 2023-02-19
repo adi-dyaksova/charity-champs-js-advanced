@@ -183,6 +183,7 @@ h3 {
     flex-direction: row;
     align-items: center;
     border: none;
+    padding-left: 10px;
 }
 
 

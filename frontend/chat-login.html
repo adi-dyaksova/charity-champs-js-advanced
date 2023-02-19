@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="./css/chat.css" />
 		<title>CharityChamps Chat</title>
 	</head>
-	<body>
+	<body onload="getFilters()">
 		<div class="join-container">
 			<header class="join-header">
 				<h1 class="login-logo">
@@ -35,20 +35,12 @@
 					<div class="form-control">
 						<label for="room">Стая</label>
 						<select name="room" id="room">
-							<!-- Тези ще се взимат от базата -->
-							<option value="Бедствия/кризи">Бедствия/кризи</option>
-							<option value="Бежанци/емигранти">Бежанци/емигранти</option>
-							<option value="Деца">Деца</option>
-							<option value="Домове">Домове</option>
-							<option value="Образование">Образование</option>
-							<option value="Култура/изкуство">Култура/изкуство</option>
-							<option value="Животни">Животни</option>
-							
 						</select>
 					</div>
 					<button type="submit" class="btn">Присъедини се към чата</button>
 				</form>
 			</main>
 		</div>
+		<script src="js/chat-login.js"></script>
 	</body>
 </html>

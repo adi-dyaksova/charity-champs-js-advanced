@@ -29,7 +29,12 @@ async function getFilteredCauses(filters) {
     const categories = filters["categories"];
     const cities = filters["cities"];
     const isUrgent = filters["isUrgent"];
-    
+    const closest = filters["closest"];
+    const longitude = filters["longitude"];
+    const latitude = filters["latitude"];
+    console.log(longitude)
+
+
     const durationsStr = durations.map(function (a) {
         return "'" + a.replace("'", "''") + "'";
     }).join(",");
@@ -55,6 +60,12 @@ async function getFilteredCauses(filters) {
     if (isUrgent) {
         whereClause += ` isUrgent = 1 AND`;
     }
+    if (closest) {
+        whereClause += ` acos(sin((${latitude} * PI())/180) * sin((latitude * PI()) / 180) + cos((${latitude} * PI())/180) * cos((latitude * PI()) / 180) * cos((longitude * PI()) / 180 - (${longitude} * PI())/180)) * 6371 < 5 AND`;
+        //whereClause += ` acos(sin((42.6687437369151 * PI())/180) * sin((latitude * PI()) / 180) + cos((42.6687437369151 * PI())/180) * cos((latitude * PI()) / 180) * cos((longitude * PI()) / 180 - (23.2710526979007 * PI())/180)) * 6371 < 5 AND`;
+
+    }
+
     if (whereClause) {
         whereClause = "WHERE " + whereClause.slice(0, -4); // Remove the last "AND"
     }
@@ -219,12 +230,26 @@ async function addCause(cause) {
             .input('longitude', sql.Float, cause.longitude)
             .input('duration_id', sql.Int, cause.duration_id)
             .input('isUrgent', sql.Bit, cause.isUrgent)
-            .input('image', sql.Int, cause.image)
+            .input('image', sql.Image, cause.image)
             .input('creator_id', sql.Int, cause.creator_id)
             .input('city_id', sql.Int, cause.city_id)
             .input('category_id', sql.Int, cause.category_id)
             .execute("InsertCause");
         return insertCause.recordsets;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+async function addUserCause(user_cause) {
+    try {
+        let pool = await sql.connect(config);
+        let insertUserCause = await pool.request()
+            .input('user_id', sql.Int, user_cause.user_id)
+            .input('cause_id', sql.Int, user_cause.cause_id)
+            .execute("InsertUserCause");
+        return insertUserCause.recordsets;
     } catch (error) {
         console.log(error);
     }
@@ -250,8 +275,8 @@ async function addMessage(message) { //TODO: create table in charity-champs.sql
 async function getMessages(room) {
     try {
         let pool = await sql.connect(config);
-        let messages = await pool.request().input('room', sql.NVarChar, room).query("SELECT * FROM [MESSAGES] WHERE room = @room ORDER BY message_id ");
-        return messages.recordsets;
+        let messages = await pool.request().input('room', sql.VarChar, room).query("SELECT * FROM [MESSAGES] WHERE room = @room ORDER BY message_id ");
+        return messages.recordset;
     } catch (error) {
         console.log(error);
     }
@@ -277,4 +302,6 @@ module.exports = {
     getVolunteeredCausesByUser: getVolunteeredCausesByUser,
     deleteVolunteeredCause: deleteVolunteeredCause,
     deleteCause: deleteCause
+    addCause: addCause,
+    addUserCause:addUserCause
 }
