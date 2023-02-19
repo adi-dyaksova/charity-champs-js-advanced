@@ -20,6 +20,10 @@ function loadCauseInfo(){
     const name = document.querySelector('.charity-heading')
     name.innerText=cause.name
 
+    const causeImage = document.getElementById('causeImage');
+    let src = "images/" + cause.image;
+    causeImage.setAttribute('src', src);
+
 }
 
 function joinCause(){
@@ -39,7 +43,7 @@ function joinCause(){
     })
         .then(response => {
             if (response.ok) {
-               
+               window.location.replace('home.html')
             } else {
                 throw new Error("Could not join cause.")
             }
