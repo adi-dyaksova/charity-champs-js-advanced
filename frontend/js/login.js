@@ -25,7 +25,7 @@ function login(event) {
             } else {
                 let errorEl = document.querySelector('section');
                 errorEl.className = 'error';
-                errorEl.innerHTML = "Грешни имейл или парола."
+                errorEl.innerHTML = "Невалидни имейл или парола."
             }
 
         })
