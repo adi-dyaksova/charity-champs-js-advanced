@@ -1,3 +1,27 @@
+if (!this.sessionStorage.getItem('id')) {
+    window.location.replace('login.html');
+} else {
+    const userId = this.sessionStorage.getItem('id');
+    const welcome = document.getElementById('welcome');
+
+    fetch("/user/" + userId, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error("Could not get logged user.");
+        }
+    }).then(data => {
+        const user = data[0];
+        welcome.innerHTML = user.username;
+
+    })
+}
+
 function getCauses() {
     fetch("/getCauses", {
         method: 'GET',
