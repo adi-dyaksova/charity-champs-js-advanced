@@ -145,9 +145,50 @@ app.post('/addCause', (req, res) => {
   dbOperations.addCause(cause).then(result => {
     res.status(201).json(result)
   })
-
-
 })
+
+app.get('/getCreatedCauses/:id', (req, res) => {
+  const id = req.params.id;
+  dbOperations.getCreatedCausesByUser(id).then(result => {
+    res.status(201).json(result);
+  })
+})
+
+app.get('/getCause/:id', (req, res) => {
+  const id = req.params.id;
+  dbOperations.getCause(id).then(result => {
+    res.status(201).json(result);
+  })
+})
+
+app.get('/user/:id', (req, res) => {
+  const id = req.params.id;
+  dbOperations.getUser(id).then(result => {
+    res.status(201).json(result);
+  })
+})
+
+app.delete('/deleteVolunteeredCause/:id', (req, res) => {
+  const id = req.params.id;
+  dbOperations.deleteVolunteeredCause(id).then(result => {
+    res.status(204).json(result);
+  })
+})
+
+app.delete('/deleteCreatedCause/:id', (req, res) => {
+  const id = req.params.id;
+  dbOperations.deleteCause(id).then(result => {
+    res.status(204).json(result);
+  })
+})
+
+app.get('/getVolunteeredCauses/:id', (req, res) => {
+  const id = req.params.id;
+  dbOperations.getVolunteeredCausesByUser(id).then(result => {
+    res.status(201).json(result);
+  })
+})
+
 
 app.post('/getFilteredCauses', async (req, res) => {
   let filters = { ...req.body };

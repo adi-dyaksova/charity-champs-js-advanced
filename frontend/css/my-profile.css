@@ -5,8 +5,8 @@ main {
 }
 
 .main-profile-pic {
-    width: 170px;
-    height: 170px;
+    width: 250px;
+    height: 150px;
     line-height: 170px;
     border-radius: 100%;
     margin-top: 30px;
@@ -208,14 +208,14 @@ header {
     height: 85px;
     width: 65px;
 }
-.delete-charity{
+.delete-charity, .unsubscribe-charity{
     color: rgb(154, 30, 30);
     font-size: 20px;
     font-weight: 800;
     margin-right: 60px;
 }
 
-.delete-charity:hover{
+.delete-charity:hover, .unsubscribe-charity:hover{
     cursor: pointer;
 }
 

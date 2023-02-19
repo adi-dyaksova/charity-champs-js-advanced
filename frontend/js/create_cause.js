@@ -1,3 +1,7 @@
+if (!sessionStorage.getItem('id')) {
+    window.location.replace('login.html')
+}
+
 mapboxgl.accessToken = 'pk.eyJ1IjoibmFua292IiwiYSI6ImNsYnNjZndpZDBwYnIzb250MjVsY2U5Y2QifQ.Yg7cmhmI1DRyolZYmoaoPg';
 const map = new mapboxgl.Map({
     container: 'map',
