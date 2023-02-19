@@ -33,7 +33,7 @@ async function getFilteredCauses(filters) {
     const longitude = filters["longitude"];
     const latitude = filters["latitude"];
     console.log(longitude)
-    
+
 
     const durationsStr = durations.map(function (a) {
         return "'" + a.replace("'", "''") + "'";
@@ -159,14 +159,54 @@ async function getDuration(durationId) {
     }
 }
 
+async function getCreatedCausesByUser(userId) {
+    try {
+        let pool = await sql.connect(config);
+        let createdCauses = await pool.request().input('id', sql.Int, userId).query("SELECT * FROM [Cause] WHERE creator_id = @id");
+        return createdCauses.recordset;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getVolunteeredCausesByUser(userId) {
+    try {
+        let pool = await sql.connect(config);
+        let volunteeredCauses = await pool.request().input('id', sql.Int, userId).query("SELECT * FROM [UserCause] WHERE user_id = @id");
+        return volunteeredCauses.recordset;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function deleteVolunteeredCause(causeId) {
+    try {
+        let pool = await sql.connect(config);
+        let volunteeredCauses = await pool.request().input('id', sql.Int, causeId).query("DELETE FROM [UserCause] WHERE cause_id = @id");
+        return volunteeredCauses.recordset;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function deleteCause(causeId) {
+    try {
+        await deleteVolunteeredCause(causeId);
+        let pool = await sql.connect(config);
+        let deletedCause = await pool.request().input('id', sql.Int, causeId).query("DELETE FROM [Cause] WHERE cause_id = @id");
+        return deletedCause.recordset;
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 async function addUser(user) {
     try {
         let pool = await sql.connect(config);
         let insertUser = await pool.request()
-            .input('first_name', sql.VarChar, user.first_name)
-            .input('last_name', sql.VarChar, user.last_name)
+            .input('first_name', sql.NVarChar, user.first_name)
+            .input('last_name', sql.NVarChar, user.last_name)
             .input('username', sql.VarChar, user.username)
             .input('password', sql.VarChar, user.password)
             .input('email', sql.VarChar, user.email)
@@ -181,9 +221,9 @@ async function addCause(cause) {
     try {
         let pool = await sql.connect(config);
         let insertCause = await pool.request()
-            .input('name', sql.VarChar, cause.name)
-            .input('short_description', sql.VarChar, cause.short_description)
-            .input('long_description', sql.VarChar, cause.long_description)
+            .input('name', sql.NVarChar, cause.name)
+            .input('short_description', sql.NVarChar, cause.short_description)
+            .input('long_description', sql.NVarChar, cause.long_description)
             .input('start_date', sql.Date, cause.start_date)
             .input('end_date', sql.Date, cause.end_date)
             .input('latitude', sql.Float, cause.latitude)
@@ -221,9 +261,9 @@ async function addMessage(message) { //TODO: create table in charity-champs.sql
         let pool = await sql.connect(config);
         let insertMessage = await pool.request()
             .input('username', sql.VarChar, message.username)
-            .input('text', sql.VarChar, message.text)
-            .input('time', sql.VarChar, message.time) //TODO: not varCHar
-            .input('room', sql.VarChar, message.room)
+            .input('text', sql.NVarChar, message.text)
+            .input('time', sql.NVarChar, message.time) //TODO: not varCHar
+            .input('room', sql.NVarChar, message.room)
             .execute("InsertMessages");
         return insertMessage.recordsets; //?? recordsets
     } catch (error) {
@@ -257,6 +297,11 @@ module.exports = {
     addUser: addUser,
     addMessage: addMessage,
     getMessages: getMessages,
+    addCause: addCause,
+    getCreatedCausesByUser: getCreatedCausesByUser,
+    getVolunteeredCausesByUser: getVolunteeredCausesByUser,
+    deleteVolunteeredCause: deleteVolunteeredCause,
+    deleteCause: deleteCause,
     addCause: addCause,
     addUserCause:addUserCause
 }

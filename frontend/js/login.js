@@ -14,7 +14,7 @@ function login() {
                 // console.log(response.json());
 
             } else {
-                throw new Error("Could not register.")
+                throw new Error("Could not log in.")
             }
         })
         .then(data => {
