@@ -301,7 +301,7 @@ module.exports = {
     getCreatedCausesByUser: getCreatedCausesByUser,
     getVolunteeredCausesByUser: getVolunteeredCausesByUser,
     deleteVolunteeredCause: deleteVolunteeredCause,
-    deleteCause: deleteCause
+    deleteCause: deleteCause,
     addCause: addCause,
     addUserCause:addUserCause
 }
