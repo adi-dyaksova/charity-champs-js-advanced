@@ -126,3 +126,9 @@ span {
 .alternative-btn:hover {
     background:var( --light-grey) ;
 }
+
+.error {
+    color: #c12020;
+    font-weight: bold;
+    padding: 1em;
+}
