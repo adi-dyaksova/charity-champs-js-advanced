@@ -230,7 +230,7 @@ async function addCause(cause) {
             .input('longitude', sql.Float, cause.longitude)
             .input('duration_id', sql.Int, cause.duration_id)
             .input('isUrgent', sql.Bit, cause.isUrgent)
-            .input('image', sql.Image, cause.image)
+            .input('image', sql.VarChar, cause.image)
             .input('creator_id', sql.Int, cause.creator_id)
             .input('city_id', sql.Int, cause.city_id)
             .input('category_id', sql.Int, cause.category_id)

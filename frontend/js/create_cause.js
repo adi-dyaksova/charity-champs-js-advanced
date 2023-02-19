@@ -45,7 +45,7 @@ function create_cause() {
             "longitude": marker.getLngLat().lng,
             "duration_id": document.getElementById("cause_duration").selectedIndex,
             "isUrgent": document.getElementById("cause_isUrgent").checked ? 1 : 0,
-            "image": document.getElementById("upload-picture").value,
+            "image": getPath(),
             "creator_id": sessionStorage.id,
             "city_id": document.getElementById("cause_city").selectedIndex,
             "category_id": document.getElementById("cause_category").selectedIndex
@@ -103,3 +103,9 @@ function addOptionsByFilter(filterArr, wrapperInd, property) {
 }
 
 document.getElementsByClassName("publish-btn")[0].addEventListener("click", () => create_cause())
+
+function getPath() {
+    let currentPath = document.getElementById("upload-picture").value.split('\\');
+    return currentPath[currentPath.length - 1];
+
+}
