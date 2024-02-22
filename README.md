@@ -1,4 +1,4 @@
-# charity-champs-js-advanced
+# Charity Champs
 System for creating charities and applying for charities as volunteers
 
 ## Login Page:
